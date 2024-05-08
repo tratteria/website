@@ -2,27 +2,21 @@
 {{ $year := now.Year }}
 {{ $social := site.Params.social }}
 
-<footer class="text-light bg-dark">
+<footer class="text-light bg-dark" style="padding: 20px 0; text-align: center;">
   <div class="container">
 
-    <i class="fab fa-github"></i>
-    <i class="fab fa-github-square"></i>
-    <i class="fab fa-twitter"></i>
-    <i class="fab fa-twitter-square"></i>
-
-    <div>
-      {{ with $social }}
-      <div>
-        {{ partial "social-buttons.html" . }}
-      </div>
-      {{ end }}
+    <div style="margin-bottom: 20px;">
+      <i class="fab fa-github" style="font-size: 24px;"></i>
     </div>
 
-    <p>
-      &copy; {{ $year }} The {{ $projectName }} Authors | Documentation Distributed under CC-BY-4.0
-    </p>
-    <p>
-      &copy; {{ $year }} The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> page.
+    {{ with $social }}
+    <div style="margin-bottom: 20px;">
+      {{ partial "social-buttons.html" . }}
+    </div>
+    {{ end }}
+
+    <p style="margin-top: 20px;">
+      &copy; {{ $year }} SGNL.ai, Inc.
     </p>
   </div>
 </footer>
