@@ -1,17 +1,11 @@
 ---
-Title: "Quickstart"
+Title: "Quickstart Guide for Tratteria"
 weight: 2
 toc: true
 ---
 
-## h2
+This tutorial is designed to help you run Tratteria as a standalone service for initial learning and evaluation. Please note that this setup omits crucial security and performance settings and **SHOULD NOT** be used in production settings.
 
-Sample copy
+- [Running Tratteria](/docs/quickstart/running-tratteria)
 
-## h2
-
-Sample copy
-
-## h2
-
-Sample copy
+- [Generating Txn-Tokens (TraTs)](/docs/quickstart/generating-trats)
