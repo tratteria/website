@@ -6,6 +6,10 @@ toc: true
 
 This tutorial is designed to help you run Tratteria as a standalone service for initial learning and evaluation. Please note that this setup omits crucial security and performance settings and **SHOULD NOT** be used in production settings.
 
+&nbsp;
+
 - [Running Tratteria](/docs/quickstart/running-tratteria)
 
-- [Generating Txn-Tokens (TraTs)](/docs/quickstart/generating-trats)
+- [Generating Txn-Tokens](/docs/quickstart/generating-trats)
+
+- [Verifying Txn-Tokens](/docs/quickstart/verifying-trats)

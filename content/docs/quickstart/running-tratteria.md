@@ -6,11 +6,13 @@ toc: true
 
 This quick-start guide outlines the steps to set up and run Tratteria for initial learning and evaluation purposes.
 
+&nbsp;
+
 - [Getting the Repository](#getting-the-repository)
 
 - [Quick-Start Configuration](#quick-start-configuration)
 
-- [Running as a Go Non-Container Server](#running-as-a-go-non-container-server)
+- [Running as a Native Go Server](#running-as-a-native-go-server)
 
 - [Running as a Docker Container](#running-as-a-docker-container)
 
@@ -28,7 +30,7 @@ git clone https://github.com/SGNL-ai/Tratteria
 
 Tratteria is configured using a YAML file. The quick-start configuration can be found at:
 
-[https://github.com/SGNL-ai/Tratteria/example-configs/config.quick-start.yaml](https://www.github.com/tratteria/examples/quick-start.config.yaml)
+[https://github.com/SGNL-ai/tratteria/blob/main/example-configs/config.quick-start.yaml](https://github.com/SGNL-ai/tratteria/blob/main/example-configs/config.quick-start.yaml)
 
 The file contains the below configuration:
 
@@ -68,7 +70,7 @@ You need to have Go installed on your system. For running Tratteria, Go version 
 Once Go is installed, you can set up your service configuration. Copy the quick-start configuration into the service repository:
 
 ```bash
-cp example-configs/quick-start.config.yaml service/quick-start.config.yaml
+cp example-configs/config.quick-start.yaml service/config.quick-start.yaml
 ```
 
 ##### Running Tratteria
@@ -81,19 +83,26 @@ cd service
 
 To run the service, you have two options:
 
-**Direct Execution:**  
+**Direct Execution:**
+
 You can run the service directly using the Go command. This method compiles and runs the program in one step:
 
 ```bash
-go run main.go
+go run cmd/main.go config.quick-start.yaml
 ```
 
-**Compile and Run:**  
-Alternatively, you can compile the service into an executable file and then run it:
+**Compile and Run:**
+
+Alternatively, compile the service into an executable:
 
 ```bash
 go build -o tratteria ./cmd
-./tratteria
+```
+
+Then, run the executable:
+
+```bash
+./tratteria config.quick-start.yaml
 ```
 
 ##### Accessing Tratteria
@@ -109,7 +118,7 @@ After starting the service, it will be available at `localhost:9090`.
 Copy the quick-start configuration into the service repository:
 
 ```bash
-cp example-configs/quick-start.config.yaml service/quick-start.config.yaml
+cp example-configs/config.quick-start.yaml service/config.quick-start.yaml
 ```
 
 ##### Building the Docker Image
@@ -130,7 +139,10 @@ docker build -t tratteria:latest .
 
 Run the Docker container:
 ```bash
-docker run -p 9090:9090 tratteria:latest ./tratteria quick-start.config.yaml
+docker run \
+  -v $(pwd)/config.quick-start.yaml:/app/config.yaml \
+  -p 9090:9090 \
+  tratteria:latest /app/config.yaml
 ```
 
 ##### Accessing Tratteria
