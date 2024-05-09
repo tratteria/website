@@ -20,7 +20,7 @@ This guide explains how to generate Txn-Tokens (TraTs) using Tratteria after its
 
 ### Overview
 
-Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate Txn-Tokens (TraTs). The service is accessible at `localhost:9090` and provides the http endpoint `/token_endpoint` for token generation.
+Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate Txn-Tokens (TraTs). The service is accessible at `localhost:9090` and provides the http endpoint `POST /token_endpoint` for token generation.
 
 
 &nbsp;
