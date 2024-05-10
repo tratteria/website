@@ -29,13 +29,22 @@ jobs:
         run: |
           rm -rf ${GITHUB_WORKSPACE}/built-site/*
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install npm dependencies
+        run: |
+          npm install
+
       - name: Setup Hugo
         run: |
           curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_linux-amd64.tar.gz'
           tar -C /usr/local/bin -zxvf /tmp/hugo.tar.gz hugo
 
       - name: Build
-        run: /usr/local/bin/hugo --cleanDestinationDir --gc
+        run: /usr/local/bin/hugo --baseURL "https://tratteria.github.io/website/" --cleanDestinationDir --gc
 
       - name: Deploy to gh-pages
         run: |
