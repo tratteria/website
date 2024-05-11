@@ -42,7 +42,7 @@ jobs:
           tar -C /usr/local/bin -zxvf /tmp/hugo.tar.gz hugo
 
       - name: Build
-        run: /usr/local/bin/hugo --baseURL "https://tratteria.github.io/website/" --cleanDestinationDir --gc
+        run: /usr/local/bin/hugo --cleanDestinationDir --gc
 
       - name: Copy new build to built-site
         run: cp -R public/* ${GITHUB_WORKSPACE}/built-site/
