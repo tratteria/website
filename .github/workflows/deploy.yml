@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: write
 
@@ -46,6 +46,12 @@ jobs:
       - name: Build
         run: /usr/local/bin/hugo --baseURL "https://tratteria.github.io/website/" --cleanDestinationDir --gc
 
+      - name: Fetch latest gh-pages
+        run: |
+          cd ${GITHUB_WORKSPACE}/built-site
+          git fetch origin gh-pages
+          git reset --hard origin/gh-pages
+
       - name: Deploy to gh-pages
         run: |
           cp -R public/* ${GITHUB_WORKSPACE}/built-site/
@@ -54,4 +60,4 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git commit -m "Deploying to gh-pages from main"
-          git push origin gh-pages
+          git push origin gh-pages --force
