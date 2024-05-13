@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quickstart Guide for Tratteria on Tratteria</title>
-    <link>https://tratteria.github.io/website/docs/quickstart/</link>
+    <link>https://tratteria.io/docs/quickstart/</link>
     <description>Recent content in Quickstart Guide for Tratteria on Tratteria</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://tratteria.github.io/website/docs/quickstart/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://tratteria.io/docs/quickstart/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Running Tratteria</title>
-      <link>https://tratteria.github.io/website/docs/quickstart/running-tratteria/</link>
+      <link>https://tratteria.io/docs/quickstart/running-tratteria/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tratteria.github.io/website/docs/quickstart/running-tratteria/</guid>
+      <guid>https://tratteria.io/docs/quickstart/running-tratteria/</guid>
       <description>This quick-start guide outlines the steps to set up and run Tratteria for initial learning and evaluation purposes.
 Getting the Repository
 Quick-Start Configuration
@@ -24,10 +24,10 @@ The file contains the below configuration:</description>
     
     <item>
       <title>Generatting Txn-Tokens</title>
-      <link>https://tratteria.github.io/website/docs/quickstart/generating-trats/</link>
+      <link>https://tratteria.io/docs/quickstart/generating-trats/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tratteria.github.io/website/docs/quickstart/generating-trats/</guid>
+      <guid>https://tratteria.io/docs/quickstart/generating-trats/</guid>
       <description>This guide explains how to generate Txn-Tokens (TraTs) using Tratteria after its successful setup, as described in the Running Tratteria guide.
 Overview
 Txn-Tokens Request Parameters
@@ -39,10 +39,10 @@ Txn-Tokens Request Parameters To request Txn-Tokens (TraTs), the following param
     
     <item>
       <title>Verifying Txn-Tokens</title>
-      <link>https://tratteria.github.io/website/docs/quickstart/verifying-trats/</link>
+      <link>https://tratteria.io/docs/quickstart/verifying-trats/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tratteria.github.io/website/docs/quickstart/verifying-trats/</guid>
+      <guid>https://tratteria.io/docs/quickstart/verifying-trats/</guid>
       <description>This guide details the steps to verify Txn-Tokens (TraTs) after successfully generating them as per the Generating Txn-Tokens guide.
 Overview
 Accessing Tratteria&amp;rsquo;s Public Key JSON Web Key Sets (JWKS)
