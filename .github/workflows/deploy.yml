@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: write
 
@@ -26,8 +26,7 @@ jobs:
           path: built-site
 
       - name: Clean built-site
-        run: |
-          rm -rf ${GITHUB_WORKSPACE}/built-site/*
+        run: rm -rf ${GITHUB_WORKSPACE}/built-site/*
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -35,8 +34,7 @@ jobs:
           node-version: '16'
 
       - name: Install npm dependencies
-        run: |
-          npm install
+        run: npm install
 
       - name: Setup Hugo
         run: |
@@ -44,14 +42,16 @@ jobs:
           tar -C /usr/local/bin -zxvf /tmp/hugo.tar.gz hugo
 
       - name: Build
-        run: /usr/local/bin/hugo --baseURL "https://tratteria.github.io/website/" --cleanDestinationDir --gc
+        run: /usr/local/bin/hugo --cleanDestinationDir --gc
+
+      - name: Copy new build to built-site
+        run: cp -R public/* ${GITHUB_WORKSPACE}/built-site/
 
       - name: Deploy to gh-pages
         run: |
-          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
           cd ${GITHUB_WORKSPACE}/built-site
           git add .
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git commit -m "Deploying to gh-pages from main"
-          git push origin gh-pages
+          git push origin gh-pages --force

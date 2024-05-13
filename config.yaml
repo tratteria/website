@@ -1,5 +1,5 @@
 title: Tratteria
-baseURL: https://tratteria.github.io/website/
+baseURL: https://tratteria.io/
 
 disableKinds:
   - taxonomy
