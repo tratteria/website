@@ -55,16 +55,18 @@ html, body {
   display: inline-block;
   margin: 0 1em;
   padding: 1em 3em;
-  border-radius: 5px;
+  border-radius: 30px;
   background: #5a67d8;
   color: #fff;
   text-decoration: none;
   font-size: 1.2vw;
   font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .buttons a:hover {
   background: #434190;
+  transform: scale(1.05);
 }
 
 
