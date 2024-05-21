@@ -9,8 +9,8 @@ html, body {
   width: 100%;
   height: 100%;
   color: #fff;
-  background: url('/img/background/image.png');
-  background-attachment: fixed;
+  background: url('/img/background/image.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .home {
