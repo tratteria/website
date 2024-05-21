@@ -13,19 +13,19 @@
         Tratteria
       
     </title>
-    <link rel="stylesheet" href="/website/css/style.1df9f62415d297f5c54d2fc02d71b1b122e108253802ae8fa49b752f0120f199.css" integrity="sha256-Hfn2JBXSl/XFTS/ALXGxsSLhCCU4Aq6PpJt1LwEg8Zk=">
+    <link rel="stylesheet" href="/css/style.1df9f62415d297f5c54d2fc02d71b1b122e108253802ae8fa49b752f0120f199.css" integrity="sha256-Hfn2JBXSl/XFTS/ALXGxsSLhCCU4Aq6PpJt1LwEg8Zk=">
 
     
 
 
-<link rel="shortcut icon" href="/website/favicon.svg">
+<link rel="shortcut icon" href="/favicon.svg">
 
 
     
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<script src="/website/js/app.09103495742f46957c0ccfe21325d1eb09374faea4d172abd0531e9d9fe6ea17.js" type="module" integrity="sha256-CRA0lXQvRpV8DM/iEyXR6wk3T66k0XKr0FMenZ/m6hc="></script>
+<script src="/js/app.09103495742f46957c0ccfe21325d1eb09374faea4d172abd0531e9d9fe6ea17.js" type="module" integrity="sha256-CRA0lXQvRpV8DM/iEyXR6wk3T66k0XKr0FMenZ/m6hc="></script>
 
 
   </head>
@@ -41,11 +41,11 @@
 <div class="navbar navbar-expand-lg navbar-light bg-light sticky-top" role="navigation" aria-label="main navigation">
   <div class="container nav-container">
     <div class="navbar-brand">
-      <a class="navbar-item text-hide" href="https://tratteria.github.io/website/">
+      <a class="navbar-item text-hide" href="https://tratteria.io/">
         Tratteria
         
         
-          <img src="/website/img/logos/rectangular-logo.svg" class="logo">
+          <img src="/img/logos/rectangular-logo.svg" class="logo">
         
       </a>
     </div>
@@ -61,14 +61,14 @@
         
         <li class="navbar-start navbar-item is-active">
           
-          <a class="nav-link" href="/website/">
+          <a class="nav-link" href="/">
             Home
           </a>
           
         
         <li class="navbar-start navbar-item">
           
-          <a class="nav-link" href="/website/docs/">
+          <a class="nav-link" href="/docs/">
             Documentation
           </a>
           
@@ -83,41 +83,105 @@
     <main class="content">
       
 
-
-<section class="jumbotron">
-  <div class="container">
-    <h1>
-      Tratteria
-    </h1>
-
-    
-    <p class="lead">
-      Boilerplate for building beautiful websites
-    </p>
-    
-  </div>
-</section>
-
-
 <section>
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <p>This is <em>not</em> a full-fledged Hugo theme! It&rsquo;s just a convenient way to get started with a brand new site that&rsquo;s wired with:</p>
-<ul>
-<li>A <a href="https://netlify.com" target="_blank" rel="noopener">Netlify</a> configuration for easy deployment, plus deploy previews</li>
-<li>Some baseline <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a> scaffolding</li>
-<li>The <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/" target="_blank" rel="noopener">Bootstrap 4.5.x</a> CSS framework</li>
-<li>An example Hugo configuration with:
-<ul>
-<li>A main menu</li>
-<li>Specified sans-serif and monospace fonts</li>
-<li>Some extra colors</li>
-<li>A Twitter button</li>
-<li>Some copyright text for the footer</li>
-</ul>
-</li>
-</ul>
+        <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-size: cover;
+  background: #00796B;
+}
+
+.home {
+  text-align: center;
+  padding: 5em 0;
+}
+
+.home img {
+  width: 300px;
+  height: auto;
+}
+
+.home h1 {
+  font-size: 3.5vw;
+  font-weight: 700;
+}
+
+.home h2 {
+  font-size: 2.5vw;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.home h3 {
+  font-size: 1.5vw;
+  font-weight: normal;
+  margin-bottom: 60px;
+}
+
+.home h3 a {
+  color: #c94a4a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.home .buttons {
+  margin-top: 20px;
+}
+
+.buttons a {
+  display: inline-block;
+  margin: 0 1em;
+  padding: 1em 3em;
+  border-radius: 30px;
+  background: #5a67d8;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2vw;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.buttons a:hover {
+  background: #434190;
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  .home h1, .home h2, .home h3, .buttons a {
+    font-size: 16px;
+  }
+  
+  .home img {
+    width: 50%;
+  }
+
+  .buttons a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+</style>
+<div class="home">
+  <img src="/img/logos/image-logo.svg" alt="Tratteria Logo">
+  <h1>Tratteria</h1>
+  <h2>A Transaction Tokens Service</h2>
+  <h3 style="margin-bottom: 0px;">Secure your microservices with <a href="https://datatracker.ietf.org/doc/draft-ietf-oauth-transaction-tokens/" target="_blank">Transaction Token</a>.</h3>
+  <h3>Integrate into your microservices application with ease.</h3>
+  <div class="buttons">
+    <a href="/docs/quickstart" class="button"><i class="fas fa-rocket"></i> Get Started</a>
+    <a href="/docs" class="button"><i class="fas fa-info-circle"></i> Learn More</a>
+  </div>
+</div>
 
       </div>
     </div>
@@ -126,26 +190,16 @@
 
 
 
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <hr>
-        <p style="margin-bottom: 20px;">Tratteria is an open-source project sponsored by:</p>
-        <a href="https://www.sgnl.ai" target="_blank">
-          <img src="img/logos/sgnl-logo--light-RGB.png" width="200" alt="Sponsor Logo" style="margin-bottom: 40px;">
-        </a>
-      </div>
-    </div>  
-  </div>
-</section>
-
     </main>
     
 
 
 
 <footer class="text-light bg-dark" style="padding: 20px 0; text-align: center;">
+  <div class="footer">
+    <p>Tratteria is an open-source project sponsored by <a href="https://www.sgnl.ai" target="_blank">SGNL.ai</a></p>
+  </div>
+  
   <div class="container">
 
     <div style="margin-bottom: 20px;">
