@@ -31,7 +31,7 @@ markup:
 params:
   projectName: Tratteria
   font_awesome_version: 5.12.0
-  description: Boilerplate for building beautiful websites
+  description: Transaction Tokens Service
   favicon: favicon.svg
   repositoryUrl: 'https://github.com/SGNL-ai/tratteria-website'
   contentDir: /content/
@@ -64,3 +64,8 @@ menu:
     - name: Documentation
       url: /docs/
       weight: 2
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
