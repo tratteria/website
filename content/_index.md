@@ -112,7 +112,7 @@ footer a {
   <h2>Transaction Tokens Service</h2>
   <h3>Secure your microservices with <a href="https://www.ietf.org/archive/id/draft-ietf-oauth-transaction-tokens-01.html" target="_blank">Transaction Token</a>.</h3>
   <div class="buttons">
+    <a href="/docs" class="button"><i class="fas fa-book-open"></i> Learn More</a>
     <a href="/docs/quickstart" class="button"><i class="fas fa-rocket"></i> Get Started</a>
-    <a href="/docs" class="button"><i class="fas fa-info-circle"></i> Learn More</a>
   </div>
 </div>
