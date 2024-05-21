@@ -47,6 +47,9 @@ jobs:
       - name: Copy new build to built-site
         run: cp -R public/* ${GITHUB_WORKSPACE}/built-site/
 
+      - name: Create CNAME file
+        run: echo 'tratteria.io' > ${GITHUB_WORKSPACE}/built-site/CNAME
+
       - name: Deploy to gh-pages
         run: |
           cd ${GITHUB_WORKSPACE}/built-site
