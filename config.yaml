@@ -36,7 +36,7 @@ params:
   repositoryUrl: 'https://github.com/SGNL-ai/tratteria-website'
   contentDir: /content/
   logos:
-    navbar: rectangular-logo.svg
+    navbar: text-image-logo.svg
   social:
     - name: GitHub
       color: '#000000'
