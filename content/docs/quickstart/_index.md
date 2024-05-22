@@ -10,6 +10,6 @@ This tutorial is designed to help you run Tratteria as a standalone service for 
 
 - [Running Tratteria](/docs/quickstart/running-tratteria)
 
-- [Generating Txn-Tokens](/docs/quickstart/generating-trats)
+- [Generating TraTs](/docs/quickstart/generating-trats)
 
-- [Verifying Txn-Tokens](/docs/quickstart/verifying-trats)
+- [Verifying TraTs](/docs/quickstart/verifying-trats)

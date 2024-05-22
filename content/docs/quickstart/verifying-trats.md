@@ -1,10 +1,10 @@
 ---
-Title: "Verifying Txn-Tokens"
+Title: "Verifying TraTs"
 weight: 3
 toc: true
 ---
 
-This guide details the steps to verify Txn-Tokens (TraTs) after successfully generating them as per the [Generating Txn-Tokens](/docs/quickstart/generating-trats) guide.
+This guide details the steps to verify Transaction Tokens (TraTs) after successfully generating them as per the [Generating TraTs](/docs/quickstart/generating-trats) guide.
 
 &nbsp;
 
@@ -12,13 +12,13 @@ This guide details the steps to verify Txn-Tokens (TraTs) after successfully gen
 
 - [Accessing Tratteria's Public Key JSON Web Key Sets (JWKS)](#accessing-tratterias-public-key-json-web-key-sets-jwks)
 
-- [Verifing Txn-Tokens](#verifing-txn-tokens)
+- [Verifing TraTs](#verifing-trats)
 
 &nbsp;
 
 ### Overview
 
-Txn-Tokens are cryptographically signed by Tratteria's private key and are verifiable using Tratteria's public key.
+TraTs are cryptographically signed by Tratteria's private key and are verifiable using Tratteria's public key.
 
 &nbsp;
 
@@ -58,9 +58,9 @@ You will get a response like the following:
 
 &nbsp;
 
-### Verifing Txn-Tokens
+### Verifing TraTs
 
-First, let's review the Txn-Token we generated in the [Generating Txn-Tokens](/docs/quickstart/generating-trats) guide. Below is the Txn-Token we received:
+First, let's review the TraT we generated in the [Generating TraTs](/docs/quickstart/generating-trats) guide. Below is the TraT we received:
 
 **JWT:**
 
@@ -93,7 +93,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IlFOVkVUMTh5ZStRT0UvdVVsa1hFa3c9PSIsInR5cCI6InR4bl90
 }
 ```
 
-Verification of Txn-Tokens involves validating both its signature and claims. 
+Verification of TraTs involves validating both its signature and claims. 
 
 
 #### Verifying Signature
@@ -103,15 +103,15 @@ Signature verification ensures the token is from Tratteria and has not been alte
 
 #### Verifying Claims
 
-Txn-Token contains the following verifiable claims:
+TraT contains the following verifiable claims:
 
 **iss**
 
-The issuer should match the Tratteria issuer value. In the generated Txn-Token, we received `https://example.org/tts` as the issuer, which is the correct value as configured in the quick-start configuration.
+The issuer should match the Tratteria issuer value. In the generated TraT, we received `https://example.org/tts` as the issuer, which is the correct value as configured in the quick-start configuration.
 
 **aud**
 
-The audience should match the trust domain of your application. In the generated Txn-Token, we received `https://example.org/` as the audience, which is the correct value as configured in the quick-start configuration.
+The audience should match the trust domain of your application. In the generated TraT, we received `https://example.org/` as the audience, which is the correct value as configured in the quick-start configuration.
 
 **iat**
 
@@ -123,7 +123,7 @@ The expiration time. This should not be in the past.
 
 **sub**
 
-The identifier of the individual, entity, or user involved in the transaction. In the generated Txn-Token, we received the following `sub` claim:
+The identifier of the individual, entity, or user involved in the transaction. In the generated TraT, we received the following `sub` claim:
 
 ```json
   "sub": {
@@ -132,11 +132,11 @@ The identifier of the individual, entity, or user involved in the transaction. I
   },
 ```
 
-Verifying the subject involves ensuring that the subject of the Txn-Token matches the subject of the request.
+Verifying the subject involves ensuring that the subject of the TraT matches the subject of the request.
 
 **azd**
 
-Authorization context of the transaction. In the generated Txn-Token, we received the following `adz` claim:
+Authorization context of the transaction. In the generated TraT, we received the following `adz` claim:
 
 ```json
   "azd": {
@@ -146,11 +146,11 @@ Authorization context of the transaction. In the generated Txn-Token, we receive
   },
 ```
 
-Validating the authorization context involves comparing the Txn-Token's `azd` JSON claims against the parameters of the received request. For instance, if the request specifies Microsoft as the stock parameter, then the same should be there in the parameters present in the `adz` JSON.
+Validating the authorization context involves comparing the TraT's `azd` JSON claims against the parameters of the received request. For instance, if the request specifies Microsoft as the stock parameter, then the same should be there in the parameters present in the `adz` JSON.
 
 **rctx**
 
-The request context provides details about the environmental context of the request, including the IP address, authentication method, and workloads involved in the request chain. In the generated Txn-Token, we received the following `rctx` claim:
+The request context provides details about the environmental context of the request, including the IP address, authentication method, and workloads involved in the request chain. In the generated TraT, we received the following `rctx` claim:
 
 ```json
 {
@@ -174,11 +174,11 @@ This denotes the method used to authenticate the requester. You should confirm t
 
 **req_wl**
 
-These are the workloads that have requested this Txn-Token. Using this list you should ensure that the request has passed through the approved and required services, thereby maintaining the integrity of the call chain.
+These are the workloads that have requested this TraT. Using this list you should ensure that the request has passed through the approved and required services, thereby maintaining the integrity of the call chain.
 
 &nbsp;
 
-As an application developer, you should verify both the signature and the claims before processing the request. You can use [this library](#) to verify Txn-Tokens. Currently, the library is only available in Go.
+As an application developer, you should verify both the signature and the claims before processing the request. You can use [this library](#) to verify TraTs. Currently, the library is only available in Go.
 
 &nbsp;
 
