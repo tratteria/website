@@ -19,7 +19,7 @@ html, body {
 }
 
 .home img {
-  width: 350px;
+  width: 200px;
   height: auto;
 }
 
