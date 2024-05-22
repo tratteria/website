@@ -1,5 +1,5 @@
 ---
-title: "Txn-Token Format"
+title: "TraT Format"
 weight: 5
 toc: true
 ---

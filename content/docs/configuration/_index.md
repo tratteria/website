@@ -46,7 +46,7 @@ Tratteria is configured using a YAML file, which is passed as a command line arg
 
 
 
-# The issuer URL indicates the txn-token server that issues the token.
+# The issuer URL indicates the TraT server that issues the token.
 issuer: https://example.org/tts
 
 # The audience URL defines the intended recipient of the token.
@@ -67,7 +67,7 @@ keys:
 spiffe:
   endpoint_socket: unix:///run/spire/sockets/agent.sock  # SPIFFE endpoint socket.
   serviceID: spiffe://example.org/tts                     # Tratteria SPIFFE ID.
-  authorizedServiceIDs:                                   # List of SPIFFE IDs that are authorized to request txn-tokens.
+  authorizedServiceIDs:                                   # List of SPIFFE IDs that are authorized to request TraTs.
     - spiffe://example.org/gateway
 
 # Configuration for subject tokens (at least one type must be provided).
@@ -111,18 +111,18 @@ accessEvaluationAPI:
 
 ##### Issuer and Audience (Required)
 
-The `issuer` field represents the Tratteria server that issues the Txn-Tokens. This is used as the issuer i.e `iss` claim of the generated Txn-Tokens. The `audience` field represents the intended recipient i.e `aud` claim of the generated Txn-Tokens.
+The `issuer` field represents the Tratteria server that issues the TraTs. This is used as the issuer i.e `iss` claim of the generated TraTs. The `audience` field represents the intended recipient i.e `aud` claim of the generated TraTs.
 
 ##### Token (Required)
 
-Configuration for Txn-Tokens. It includes the following:
+Configuration for TraTs. It includes the following:
 
   - **Life Time (Required)**  
-    Defines the duration for which the generated Txn-Tokens are valid. The value chosen should align with your application's API response times, and should generally be in the order of seconds. Longer-lasting tokens are less secure. A good approach is to match the token’s lifetime to the API timeout value. For instance, if APIs requests time out after 15 seconds, setting the token lifetime to 15 seconds is advisable. The token lifetime should not exceed your API timeout duration.
+    Defines the duration for which the generated TraTs are valid. The value chosen should align with your application's API response times, and should generally be in the order of seconds. Longer-lasting tokens are less secure. A good approach is to match the token’s lifetime to the API timeout value. For instance, if APIs requests time out after 15 seconds, setting the token lifetime to 15 seconds is advisable. The token lifetime should not exceed your API timeout duration.
 
 ##### Keys (Optional)
 
-Keys used for signing Txn-Tokens. This is an optional field. When configured, it includes the following:
+Keys used for signing TraTs. This is an optional field. When configured, it includes the following:
 
   - **privateKey (Required)**  
     Specifies the private key used for signing tokens. It should be provided in the Base64-encoded format, representing the PEM-encoded key data. It is recommended to set this via an environment variable for security.
@@ -140,7 +140,7 @@ For both supplied and automatically generated keys, the public key JSON Web Key 
 
 ##### SPIFFE (Optional)
 
-Configuration for SPIFEE service-to-service trust. Tratteria supports authenticating the Txn-Token requesting workloads using SPIRE. This is an optional field. When configured, it includes the following:
+Configuration for SPIFEE service-to-service trust. Tratteria supports authenticating the TraT requesting workloads using SPIRE. This is an optional field. When configured, it includes the following:
 
   - **endpoint_socket (Required)**  
     Specifies the Unix socket for the SPIFFE endpoint.
@@ -149,16 +149,16 @@ Configuration for SPIFEE service-to-service trust. Tratteria supports authentica
     SPIFFE ID for Tratteria, identifying it within the SPIFFE framework.
 
   - **authorizedServiceIDs (Required)**  
-    SPIFFE IDs authorized to request Txn-Tokens. This list should include the SPIFFE ID of the Gateway, API microservice, Load Balancer, or any other service that receives external API calls and generates the initial Txn-Token. Additionally, the list should include the SPIFFE IDs of any other service that needs to request replacement Txn-Tokens.
+    SPIFFE IDs authorized to request TraTs. This list should include the SPIFFE ID of the Gateway, API microservice, Load Balancer, or any other service that receives external API calls and generates the initial TraT. Additionally, the list should include the SPIFFE IDs of any other service that needs to request replacement TraTs.
 
 If you're not using SPIFFE and not providing this configuration, make sure to use an alternative method to securely authenticate requesting workloads. Avoid insecure mechanisms like long-lived shared secrets.
 
 ##### Subject Tokens (Required)
 
-Subject tokens are required for uniquely identifying the individual, entity, or user involved in a transaction. The Txn-Token request includes subject token. Tratteria validates the subject token and determine the value to specify as the `sub` of the issued Txn-Token. As of now, Tratteria supports OIDC ID tokens and self-signed JWTs as subject tokens. Configuration for at least one method should be provided.
+Subject tokens are required for uniquely identifying the individual, entity, or user involved in a transaction. The TraT request includes subject token. Tratteria validates the subject token and determine the value to specify as the `sub` of the issued TraT. As of now, Tratteria supports OIDC ID tokens and self-signed JWTs as subject tokens. Configuration for at least one method should be provided.
 
   - **OIDC (Optional):**  
-    OIDC ID tokens serve as a means to uniquely identify users within an OpenID Connect (OIDC) framework. When OIDC ID tokens are used in Txn-Token requests as subject tokens, the requester must set the `subject_token_type` to `urn:ietf:params:oauth:token-type:id_token`.
+    OIDC ID tokens serve as a means to uniquely identify users within an OpenID Connect (OIDC) framework. When OIDC ID tokens are used in TraT requests as subject tokens, the requester must set the `subject_token_type` to `urn:ietf:params:oauth:token-type:id_token`.
 
     This configuration is optional. When configured, it includes the following:
 
@@ -169,16 +169,16 @@ Subject tokens are required for uniquely identifying the individual, entity, or 
         The URL of the OIDC provider.
 
       - **subjectField (Required)**  
-        The claim or field of the OIDC ID token to be used as `sub` in the issued Txn-Token.
+        The claim or field of the OIDC ID token to be used as `sub` in the issued TraT.
 
-    [Example application](https://github.com/SGNL-ai/tratteria/tree/main/example-application) utilizes OIDC ID tokens for subject tokens. Refer to it for guidance on configuration and its usage as the subject token in the Txn-Token request.
+    [Example application](https://github.com/SGNL-ai/tratteria/tree/main/example-application) utilizes OIDC ID tokens for subject tokens. Refer to it for guidance on configuration and its usage as the subject token in the TraT request.
 
   - **selfSigned (Optional):**  
-    Self-signed JWTs can also be used as subject tokens. In this case, the requester must set the `subject_token_type` in the Txn-Token request to `urn:ietf:params:oauth:token-type:self_signed`. The self-signed JWTs must contain the following claims:
+    Self-signed JWTs can also be used as subject tokens. In this case, the requester must set the `subject_token_type` in the TraT request to `urn:ietf:params:oauth:token-type:self_signed`. The self-signed JWTs must contain the following claims:
 
-      - **iss:** The unique identifier of the requesting workload. Tratteria utilizes this value in determining the `req_wl` value in the issued Txn-Token.
+      - **iss:** The unique identifier of the requesting workload. Tratteria utilizes this value in determining the `req_wl` value in the issued TraT.
 
-      - **sub:** The subject for whom the Txn-Token is being requested. Tratteria use this value for the `sub` value in the issued Txn-Token.
+      - **sub:** The subject for whom the TraT is being requested. Tratteria use this value for the `sub` value in the issued TraT.
 
       - **aud:** The unique identifier of the Tratteria. Tratteria verifies that this value matches its configured `issuer` value.
 
@@ -188,7 +188,7 @@ Subject tokens are required for uniquely identifying the individual, entity, or 
 
       Additionally, the self-signed JWTs may contain other claims.
 
-      Tratteria extracts the `sub` claim of the self-signed JWTs into the `sub` claim of the issued Txn-Token.
+      Tratteria extracts the `sub` claim of the self-signed JWTs into the `sub` claim of the issued TraT.
       
     This is an optional configuration. When configured, it includes the following:
 
@@ -198,10 +198,10 @@ Subject tokens are required for uniquely identifying the individual, entity, or 
       - **jwksEndpoint (Required)**  
         The URL where the JSON Web Key Set (JWKS) can be found for validating self-signed JWTs signatures.
 
-    Check the [self-signed JWTs](https://www.ietf.org/archive/id/draft-ietf-oauth-transaction-tokens-01.html) in the Txn-Token draft specification for more details.
+    Check the [self-signed JWTs](https://www.ietf.org/archive/id/draft-ietf-oauth-transaction-tokens-01.html) in the TraT draft specification for more details.
 
 ##### Access Evaluation (Optional)
-Tratteria supports access evaluation of transactions before issuing Txn-Tokens. Tratteria supports [AuthZen](https://openid.github.io/authzen/#name-access-evaluations-api) access-evaluation API.
+Tratteria supports access evaluation of transactions before issuing TraTs. Tratteria supports [AuthZen](https://openid.github.io/authzen/#name-access-evaluations-api) access-evaluation API.
 
 This is an optional configuration. When configured, it requires the following:
 
@@ -218,7 +218,7 @@ This is an optional configuration. When configured, it requires the following:
         Specifies the token to be used with the authentication method. Currently, only `value` is supported. For security reasons, it is recommended to set this via an environment variable.
 
   - **requestMapping (Required)**  
-    Specifies how to construct the request body for the access-evaluation API using JSON path expressions and YAML fields. The configuration allows for the construction of arbitrary JSONs using Txn-Tokens request components: `subject_token`, `scope`, `request_details`, and `request_context`. If a particular JSON path does not exist for a request, the field is omitted.
+    Specifies how to construct the request body for the access-evaluation API using JSON path expressions and YAML fields. The configuration allows for the construction of arbitrary JSONs using TraTs request components: `subject_token`, `scope`, `request_details`, and `request_context`. If a particular JSON path does not exist for a request, the field is omitted.
 
 &nbsp;
 

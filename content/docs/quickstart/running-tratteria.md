@@ -47,7 +47,7 @@ enableAccessEvaluation: false
 
 ##### Explanation of Configuration Parameters:
 
-- **issuer**: Specifies the txn-token server that issues the token.
+- **issuer**: Specifies the TraTs service that issues the token.
 - **audience**: Intended recipient(s) of the token.
 - **token**: Configuration settings for tokens:
   - **lifeTime**: Duration for which the token is valid; here, it is 15 seconds.
@@ -153,6 +153,6 @@ This starts the Tratteria server inside a Docker container and makes it accessib
 
 &nbsp;
 
-After successfully running the Tratteria, you might want to generate txn-tokens (TraTs). For detailed instructions on this next step, please visit [Generating Txn-Tokens (TraTs)](/docs/quickstart/generating-trats).
+After successfully running the Tratteria, you might want to generate Transaction Tokens (TraTs). For detailed instructions on this next step, please visit [Generating TraTs](/docs/quickstart/generating-trats).
 
 This quick-start guide provides the basic steps to get Tratteria up and running for initial learning and evaluation purposes. Remember to adjust the configurations as per the requirements for any setup beyond initial evaluations. Check [this guide](#) for detailed instructions on configuring and integrating production-level Tratteria.

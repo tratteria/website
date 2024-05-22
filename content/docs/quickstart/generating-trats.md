@@ -1,33 +1,33 @@
 ---
-Title: "Generatting Txn-Tokens"
+Title: "Generatting TraTs"
 weight: 2
 toc: true
 ---
 
-This guide explains how to generate Txn-Tokens (TraTs) using Tratteria after its successful setup, as described in the [Running Tratteria](/docs/quickstart/running-tratteria) guide.
+This guide explains how to generate TraTs (TraTs) using Tratteria after its successful setup, as described in the [Running Tratteria](/docs/quickstart/running-tratteria) guide.
 
 &nbsp;
 
 - [Overview](#overview)
 
-- [Txn-Tokens Request Parameters](#txn-tokens-request-parameters)
+- [TraTs Request Parameters](#trats-request-parameters)
 
-- [Txn-Tokens Request](#txn-tokens-request)
+- [TraTs Request](#trats-request)
 
-- [Txn-Tokens Response](#txn-tokens-response)
+- [TraTs Response](#trats-response)
 
 &nbsp;
 
 ### Overview
 
-Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate Txn-Tokens (TraTs). The service is accessible at `localhost:9090` and provides the http endpoint `POST /token_endpoint` for token generation.
+Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate TraTs (TraTs). The service is accessible at `localhost:9090` and provides the http endpoint `POST /token_endpoint` for token generation.
 
 
 &nbsp;
 
-#### Txn-Tokens Request Parameters
+#### TraTs Request Parameters
 
-To request Txn-Tokens (TraTs), the following parameters must be provided in the request:
+To request TraTs (TraTs), the following parameters must be provided in the request:
 
 **grant_type (REQUIRED)**
 
@@ -40,7 +40,7 @@ urn:ietf:params:oauth:grant-type:token-exchange
 
 **audience (REQUIRED)**
 
-The audience for which txn-tokens are intented for. This value should be the same as the one configured in the configuration file. As configured in the quick-start config file, we will set it to
+The audience for which TraTs are intented for. This value should be the same as the one configured in the configuration file. As configured in the quick-start config file, we will set it to
 
 ```plaintext
 https://example.org/
@@ -48,7 +48,7 @@ https://example.org/
 
 **scope (REQUIRED)**
 
-For this guide, we will generate Txn-Tokens for trading stocks. We will use the following scope for this transaction:
+For this guide, we will generate TraTs for trading stocks. We will use the following scope for this transaction:
 
 ```plaintext
 stocks.trade
@@ -59,7 +59,7 @@ stocks.trade
 Set to
 
 ```plaintext
-urn:ietf:params:oauth:token-type:txn-token
+urn:ietf:params:oauth:token-type:TraT
 ```
 
 **subject_token (REQUIRED)**
@@ -87,7 +87,7 @@ The above JWT has the below body:
 }
 ```
 
-Tratteria verifies the signature of the self-signed subject tokens it receives in txn-token requests. However, for simplicity, we have disabled the verification in the quick-start configuration. Therefore, there's need to concern ourselves with the keys used for signing these self-signed tokens in this guide. Nonetheless, in a production-level setting, you would enable this verification to ensure the security and integrity of self-signed tokens. For guidance on how to enable and configure this, please cleck [this guide](#).
+Tratteria verifies the signature of the self-signed subject tokens it receives in TraT requests. However, for simplicity, we have disabled the verification in the quick-start configuration. Therefore, there's need to concern ourselves with the keys used for signing these self-signed tokens in this guide. Nonetheless, in a production-level setting, you would enable this verification to ensure the security and integrity of self-signed tokens. For guidance on how to enable and configure this, please cleck [this guide](#).
 
 **subject_token_type**
 
@@ -109,7 +109,7 @@ Authorization context of the transaction. Since this transaction is for stocks t
 }
 ```
 
-The Txn-Token request requires request details in base64url encoded JSON format. You can encode the JSON using [this online tool](https://www.base64url.com/) or other available methods. The encoded version will appear like this:
+The TraT request requires request details in base64url encoded JSON format. You can encode the JSON using [this online tool](https://www.base64url.com/) or other available methods. The encoded version will appear like this:
 
 ```plaintext
 ewogICAgImFjdGlvbiI6ICJCdXkiLAogICAgInF1YW50aXR5IjogNSwKICAgICJzdG9jayI6ICJOQVNEQVE6TVNGVCIKfQ
@@ -117,7 +117,7 @@ ewogICAgImFjdGlvbiI6ICJCdXkiLAogICAgInF1YW50aXR5IjogNSwKICAgICJzdG9jayI6ICJOQVNE
 
 **request_context**
 
-Transaction requester context. It can contain information such as the IP address of the originating user, information about the computational entity that requested the Txn-Token, and the contextual attributes of the originating request. For this guide, we will include the IP address of the client making the trade transaction in the request context.
+Transaction requester context. It can contain information such as the IP address of the originating user, information about the computational entity that requested the TraT, and the contextual attributes of the originating request. For this guide, we will include the IP address of the client making the trade transaction in the request context.
 
 ```json
 {
@@ -125,7 +125,7 @@ Transaction requester context. It can contain information such as the IP address
 }
 ```
 
-The Txn-Token request requires request context in base64url encoded JSON format. You can encode the JSON using [this online tool](https://www.base64url.com/) or other available methods. The encoded version will appear like this:
+The TraT request requires request context in base64url encoded JSON format. You can encode the JSON using [this online tool](https://www.base64url.com/) or other available methods. The encoded version will appear like this:
 
 ```plaintext
 ewogICJyZXFfaXAiOiAiMTkyLjEyOC4wLjg5Igp9
@@ -133,9 +133,9 @@ ewogICJyZXFfaXAiOiAiMTkyLjEyOC4wLjg5Igp9
 
 &nbsp;
 
-### Txn-Tokens Request
+### TraTs Request
 
-With the above parameters, we will get the following Txn-Token request:
+With the above parameters, we will get the following TraT request:
 
 
 ```bash
@@ -151,13 +151,13 @@ curl --location 'http://localhost:9090/token_endpoint' \
 --data-urlencode 'request_context=ewogICJyZXFfaXAiOiAiMTkyLjEyOC4wLjg5Igp9'
 ```
 
-You can execute this command directly from a terminal or from tools such as Postman to perform the Txn-Token request.
+You can execute this command directly from a terminal or from tools such as Postman to perform the TraT request.
 
 &nbsp;
 
-### Txn-Tokens Response
+### TraTs Response
 
-A successful Txn-Token response contains the following:
+A successful TraT response contains the following:
 
 **token_type**
 
@@ -172,16 +172,16 @@ N_A
 Set to
 
 ```plaintext
-urn:ietf:params:oauth:token-type:txn-token
+urn:ietf:params:oauth:token-type:TraT
 ```
 
 **access_token**
 
-Set to the **Txn-Token** generated by the request.
+Set to the **TraT** generated by the request.
 
 &nbsp;
 
-In this guide, we will get the below Txn-Token response:
+In this guide, we will get the below TraT response:
 
 ```json
 {
@@ -191,7 +191,7 @@ In this guide, we will get the below Txn-Token response:
 }
 ```
 
-where `access_token` is set to the Txn-Token. It will have the below body:
+where `access_token` is set to the TraT. It will have the below body:
 
 ```json
 {
@@ -216,11 +216,11 @@ where `access_token` is set to the Txn-Token. It will have the below body:
 }
 ```
 
-For details on Txn-Token claims check [this guide](#).
+For details on TraT claims check [this guide](#).
 
 &nbsp;
 
-After successfully generating Txn-Tokens (TraTs), you might want to verify them. For detailed instructions on this next step, please visit [Verifying Txn-Tokens](/docs/quickstart/verifying-trats).
+After successfully generating TraTs (TraTs), you might want to verify them. For detailed instructions on this next step, please visit [Verifying TraTs](/docs/quickstart/verifying-trats).
 
 
 This quick start guide provides the basic steps to get Tratteria up and running for initial learning and evaluation purposes. Remember to adjust the configurations as per the requirements for any setup beyond initial evaluations. Check [this guide](#) for detailed instructions on configuring and integrating production-level Tratteria.
