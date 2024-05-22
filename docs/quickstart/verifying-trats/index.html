@@ -129,7 +129,7 @@
 
 <li  class="is-active">
   / <a href="/docs/quickstart/verifying-trats/">
-    Verifying Txn-Tokens
+    Verifying TraTs
   </a>
 </li>
 
@@ -177,11 +177,11 @@
             </li>
             
             <li>
-                <a  href="/docs/quickstart/generating-trats/">Generatting Txn-Tokens</a>
+                <a  href="/docs/quickstart/generating-trats/">Generatting TraTs</a>
             </li>
             
             <li>
-                <a  href="/docs/quickstart/verifying-trats/">Verifying Txn-Tokens</a>
+                <a  href="/docs/quickstart/verifying-trats/">Verifying TraTs</a>
             </li>
             
           </ul>
@@ -199,13 +199,13 @@
           </ul>
         </li>
     
-        <li><a  href="/docs/txn-token-format/">Txn-Token Format</a>
+        <li><a  href="/docs/txn-token-format/">TraT Format</a>
           <ul>
             
           </ul>
         </li>
     
-        <li><a  href="/docs/replacement-txn-token/">Replacement Txn-Tokens</a>
+        <li><a  href="/docs/replacement-txn-token/">Replacement TraTs</a>
           <ul>
             
           </ul>
@@ -228,11 +228,11 @@
 
         </section>
         <section class="col col-8">
-          <h1 class="title">Verifying Txn-Tokens</h1>
+          <h1 class="title">Verifying TraTs</h1>
           <p class="subtitle"></p>
           
 <div class="content">
-  <p>This guide details the steps to verify Txn-Tokens (TraTs) after successfully generating them as per the <a href="/docs/quickstart/generating-trats">Generating Txn-Tokens</a> guide.</p>
+  <p>This guide details the steps to verify Transaction Tokens (TraTs) after successfully generating them as per the <a href="/docs/quickstart/generating-trats">Generating TraTs</a> guide.</p>
 <p> </p>
 <ul>
 <li>
@@ -242,7 +242,7 @@
 <p><a href="#accessing-tratterias-public-key-json-web-key-sets-jwks">Accessing Tratteria&rsquo;s Public Key JSON Web Key Sets (JWKS)</a></p>
 </li>
 <li>
-<p><a href="#verifing-txn-tokens">Verifing Txn-Tokens</a></p>
+<p><a href="#verifing-trats">Verifing TraTs</a></p>
 </li>
 </ul>
 <p> </p>
@@ -254,7 +254,7 @@
     </span>
   </a>
 </h3>
-<p>Txn-Tokens are cryptographically signed by Tratteria&rsquo;s private key and are verifiable using Tratteria&rsquo;s public key.</p>
+<p>TraTs are cryptographically signed by Tratteria&rsquo;s private key and are verifiable using Tratteria&rsquo;s public key.</p>
 <p> </p>
 <h3 id="accessing-tratterias-public-key-json-web-key-sets-jwks">
   Accessing Tratteria&rsquo;s Public Key JSON Web Key Sets (JWKS)
@@ -284,15 +284,15 @@
 </span></span><span style="display:flex;"><span>    ]
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p> </p>
-<h3 id="verifing-txn-tokens">
-  Verifing Txn-Tokens
-  <a href="#verifing-txn-tokens">
+<h3 id="verifing-trats">
+  Verifing TraTs
+  <a href="#verifing-trats">
     <span class="icon hashlink">
       <i class="fas fa-link"></i>
     </span>
   </a>
 </h3>
-<p>First, let&rsquo;s review the Txn-Token we generated in the <a href="/docs/quickstart/generating-trats">Generating Txn-Tokens</a> guide. Below is the Txn-Token we received:</p>
+<p>First, let&rsquo;s review the TraT we generated in the <a href="/docs/quickstart/generating-trats">Generating TraTs</a> guide. Below is the TraT we received:</p>
 <p><strong>JWT:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>eyJhbGciOiJSUzI1NiIsImtpZCI6IlFOVkVUMTh5ZStRT0UvdVVsa1hFa3c9PSIsInR5cCI6InR4bl90b2tlbiJ9.eyJhdWQiOiJodHRwczovL2V4YW1wbGUub3JnLyIsImF6ZCI6eyJhY3Rpb24iOiJCdXkiLCJxdWFudGl0eSI6NSwic3RvY2siOiJOQVNEQVE6TVNGVCJ9LCJleHAiOjE3MTUyMzAxMzMsImlhdCI6MTcxNTIzMDExOCwiaXNzIjoiaHR0cHM6Ly9leGFtcGxlLm9yZy90dHMiLCJwdXJwIjoic3RvY2tzLnRyYWRlIiwicmN0eCI6eyJyZXFfaXAiOiIxOTIuMTI4LjAuODkifSwic3ViIjp7ImVtYWlsIjoic2hlcmxvY2tAZGV0ZWN0LmNvbSIsImZvcm1hdCI6ImVtYWlsIn0sInR4biI6ImUzNDAyNWI5LTI2MjQtNGY1ZC1iZDFhLTgzZGVmODM3OWViZSJ9.kse_HrxLxgI583Z5uez3jBX5ylgR7oFTSwCIv5zsuYGGiBpDn-OBPmvEVyxIcT2dZC5WD82AMRjUrTy4wFquZReeuIxminMTqocWBl2v4Pu8uLvcEnH-Tv9qa8MtgXcU0a-xELWGulqe2UAUv_3Mi0Wb20QMgURcFaFcT7ccZXX_xHsrsboKavS7H_bWhEcwR3FvXKt1YwY3zDXiUHZaxjqGTqrv0V8wDFSZmnVFapT5RRH2tarYOmuKwv3MbdaXT0ZHBvQ2S2fBzOZ47WaTiTv9sKB-N8am94J3I_bo15dCauOm_bXZGT5ybbuBAp23D3297ARIYl74Xf_MJcapKA
 </span></span></code></pre></div><p><strong>Payload:</strong></p>
@@ -316,7 +316,7 @@
 </span></span><span style="display:flex;"><span>  },
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;txn&#34;</span>: <span style="color:#e6db74">&#34;e34025b9-2624-4f5d-bd1a-83def8379ebe&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Verification of Txn-Tokens involves validating both its signature and claims.</p>
+</span></span></code></pre></div><p>Verification of TraTs involves validating both its signature and claims.</p>
 <h4 id="verifying-signature">
   Verifying Signature
   <a href="#verifying-signature">
@@ -334,32 +334,32 @@
     </span>
   </a>
 </h4>
-<p>Txn-Token contains the following verifiable claims:</p>
+<p>TraT contains the following verifiable claims:</p>
 <p><strong>iss</strong></p>
-<p>The issuer should match the Tratteria issuer value. In the generated Txn-Token, we received <code>https://example.org/tts</code> as the issuer, which is the correct value as configured in the quick-start configuration.</p>
+<p>The issuer should match the Tratteria issuer value. In the generated TraT, we received <code>https://example.org/tts</code> as the issuer, which is the correct value as configured in the quick-start configuration.</p>
 <p><strong>aud</strong></p>
-<p>The audience should match the trust domain of your application. In the generated Txn-Token, we received <code>https://example.org/</code> as the audience, which is the correct value as configured in the quick-start configuration.</p>
+<p>The audience should match the trust domain of your application. In the generated TraT, we received <code>https://example.org/</code> as the audience, which is the correct value as configured in the quick-start configuration.</p>
 <p><strong>iat</strong></p>
 <p>The issued at time. This should not be in the future.</p>
 <p><strong>exp</strong></p>
 <p>The expiration time. This should not be in the past.</p>
 <p><strong>sub</strong></p>
-<p>The identifier of the individual, entity, or user involved in the transaction. In the generated Txn-Token, we received the following <code>sub</code> claim:</p>
+<p>The identifier of the individual, entity, or user involved in the transaction. In the generated TraT, we received the following <code>sub</code> claim:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;sub&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;format&#34;</span>: <span style="color:#e6db74">&#34;email&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;email&#34;</span>: <span style="color:#e6db74">&#34;sherlock@detect.com&#34;</span>
 </span></span><span style="display:flex;"><span>  }<span style="color:#960050;background-color:#1e0010">,</span>
-</span></span></code></pre></div><p>Verifying the subject involves ensuring that the subject of the Txn-Token matches the subject of the request.</p>
+</span></span></code></pre></div><p>Verifying the subject involves ensuring that the subject of the TraT matches the subject of the request.</p>
 <p><strong>azd</strong></p>
-<p>Authorization context of the transaction. In the generated Txn-Token, we received the following <code>adz</code> claim:</p>
+<p>Authorization context of the transaction. In the generated TraT, we received the following <code>adz</code> claim:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;azd&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;action&#34;</span>: <span style="color:#e6db74">&#34;Buy&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;quantity&#34;</span>: <span style="color:#ae81ff">5</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;stock&#34;</span>: <span style="color:#e6db74">&#34;NASDAQ:MSFT&#34;</span>
 </span></span><span style="display:flex;"><span>  }<span style="color:#960050;background-color:#1e0010">,</span>
-</span></span></code></pre></div><p>Validating the authorization context involves comparing the Txn-Token&rsquo;s <code>azd</code> JSON claims against the parameters of the received request. For instance, if the request specifies Microsoft as the stock parameter, then the same should be there in the parameters present in the <code>adz</code> JSON.</p>
+</span></span></code></pre></div><p>Validating the authorization context involves comparing the TraT&rsquo;s <code>azd</code> JSON claims against the parameters of the received request. For instance, if the request specifies Microsoft as the stock parameter, then the same should be there in the parameters present in the <code>adz</code> JSON.</p>
 <p><strong>rctx</strong></p>
-<p>The request context provides details about the environmental context of the request, including the IP address, authentication method, and workloads involved in the request chain. In the generated Txn-Token, we received the following <code>rctx</code> claim:</p>
+<p>The request context provides details about the environmental context of the request, including the IP address, authentication method, and workloads involved in the request chain. In the generated TraT, we received the following <code>rctx</code> claim:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;rctx&#34;</span>: {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;req_ip&#34;</span>: <span style="color:#e6db74">&#34;192.128.0.89&#34;</span>,
@@ -373,9 +373,9 @@
 <p><strong>authn</strong></p>
 <p>This denotes the method used to authenticate the requester. You should confirm that the authentication method used is acceptable. In this instance, we received <code>urn:ietf:params:oauth:token-type:self_signed</code>, indicating that the subject token is self-signed, which is the correct authn value for the quick-start configuration.</p>
 <p><strong>req_wl</strong></p>
-<p>These are the workloads that have requested this Txn-Token. Using this list you should ensure that the request has passed through the approved and required services, thereby maintaining the integrity of the call chain.</p>
+<p>These are the workloads that have requested this TraT. Using this list you should ensure that the request has passed through the approved and required services, thereby maintaining the integrity of the call chain.</p>
 <p> </p>
-<p>As an application developer, you should verify both the signature and the claims before processing the request. You can use <a href="#">this library</a> to verify Txn-Tokens. Currently, the library is only available in Go.</p>
+<p>As an application developer, you should verify both the signature and the claims before processing the request. You can use <a href="#">this library</a> to verify TraTs. Currently, the library is only available in Go.</p>
 <p> </p>
 <p>This quick start guide provides the basic steps to get Tratteria up and running for initial learning and evaluation purposes. Remember to adjust the configurations as per the requirements for any setup beyond initial evaluations. Check <a href="#">this guide</a> for detailed instructions on configuring and integrating production-level Tratteria.</p>
 
@@ -396,7 +396,7 @@
       <ul>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#accessing-tratterias-public-key-json-web-key-sets-jwks">Accessing Tratteria&rsquo;s Public Key JSON Web Key Sets (JWKS)</a></li>
-        <li><a href="#verifing-txn-tokens">Verifing Txn-Tokens</a></li>
+        <li><a href="#verifing-trats">Verifing TraTs</a></li>
       </ul>
     </li>
   </ul>
