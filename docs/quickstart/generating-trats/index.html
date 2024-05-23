@@ -129,7 +129,7 @@
 
 <li  class="is-active">
   / <a href="/docs/quickstart/generating-trats/">
-    Generatting TraTs
+    Generating TraTs
   </a>
 </li>
 
@@ -177,7 +177,7 @@
             </li>
             
             <li>
-                <a  href="/docs/quickstart/generating-trats/">Generatting TraTs</a>
+                <a  href="/docs/quickstart/generating-trats/">Generating TraTs</a>
             </li>
             
             <li>
@@ -228,24 +228,24 @@
 
         </section>
         <section class="col col-8">
-          <h1 class="title">Generatting TraTs</h1>
+          <h1 class="title">Generating TraTs</h1>
           <p class="subtitle"></p>
           
 <div class="content">
-  <p>This guide explains how to generate TraTs (TraTs) using Tratteria after its successful setup, as described in the <a href="/docs/quickstart/running-tratteria">Running Tratteria</a> guide.</p>
+  <p>This guide explains how to generate TraTs using Tratteria after its successful setup, as described in the <a href="/docs/quickstart/running-tratteria">Running Tratteria</a> guide.</p>
 <p> </p>
 <ul>
 <li>
 <p><a href="#overview">Overview</a></p>
 </li>
 <li>
-<p><a href="#trats-request-parameters">TraTs Request Parameters</a></p>
+<p><a href="#trat-request-parameters">TraTs Request Parameters</a></p>
 </li>
 <li>
-<p><a href="#trats-request">TraTs Request</a></p>
+<p><a href="#trat-request">TraTs Request</a></p>
 </li>
 <li>
-<p><a href="#trats-response">TraTs Response</a></p>
+<p><a href="#trat-response">TraTs Response</a></p>
 </li>
 </ul>
 <p> </p>
@@ -257,17 +257,17 @@
     </span>
   </a>
 </h3>
-<p>Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate TraTs (TraTs). The service is accessible at <code>localhost:9090</code> and provides the http endpoint <code>POST /token_endpoint</code> for token generation.</p>
+<p>Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate TraTs. The service is accessible at <code>localhost:9090</code> and provides the http endpoint <code>POST /token_endpoint</code> for token generation.</p>
 <p> </p>
-<h4 id="trats-request-parameters">
-  TraTs Request Parameters
-  <a href="#trats-request-parameters">
+<h4 id="trat-request-parameters">
+  TraT Request Parameters
+  <a href="#trat-request-parameters">
     <span class="icon hashlink">
       <i class="fas fa-link"></i>
     </span>
   </a>
 </h4>
-<p>To request TraTs (TraTs), the following parameters must be provided in the request:</p>
+<p>To request TraTs, the following parameters must be provided in the request:</p>
 <p><strong>grant_type (REQUIRED)</strong></p>
 <p>Set to</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>urn:ietf:params:oauth:grant-type:token-exchange
@@ -279,7 +279,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>stocks.trade
 </span></span></code></pre></div><p><strong>requested_token_type (REQUIRED)</strong></p>
 <p>Set to</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>urn:ietf:params:oauth:token-type:TraT
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>urn:ietf:params:oauth:token-type:txn-token
 </span></span></code></pre></div><p><strong>subject_token (REQUIRED)</strong></p>
 <p>The individual, entity, or user involved in the transaction. As we have configured Tratteria with self-signed subject tokens, we can pass a custom JWT as the subject token. You can generate your subject token using <a href="https://www.scottbrady91.com/tools/jwt" target="_blank" rel="noopener">this online tool</a> or using other available methods.</p>
 <p>Alternatively, for now, you can use the following JWT as well:</p>
@@ -295,7 +295,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;exp&#34;</span>: <span style="color:#ae81ff">1714994420</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;iat&#34;</span>: <span style="color:#ae81ff">1714783405</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Tratteria verifies the signature of the self-signed subject tokens it receives in TraT requests. However, for simplicity, we have disabled the verification in the quick-start configuration. Therefore, there&rsquo;s need to concern ourselves with the keys used for signing these self-signed tokens in this guide. Nonetheless, in a production-level setting, you would enable this verification to ensure the security and integrity of self-signed tokens. For guidance on how to enable and configure this, please cleck <a href="#">this guide</a>.</p>
+</span></span></code></pre></div><p>Tratteria verifies the signature of the self-signed subject tokens it receives in TraT requests. However, for simplicity, we have disabled the verification in the quick-start configuration. Therefore, there&rsquo;s need to concern ourselves with the keys used for signing these self-signed tokens in this guide. However, in a production-level setting, you would enable this verification to ensure the security and integrity of self-signed tokens. For guidance on how to enable and configure this, please cleck <a href="#">this guide</a>.</p>
 <p><strong>subject_token_type</strong></p>
 <p>As we are using self-signed subject token, so we will set it to</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>urn:ietf:params:oauth:token-type:self_signed
@@ -316,9 +316,9 @@
 </span></span></code></pre></div><p>The TraT request requires request context in base64url encoded JSON format. You can encode the JSON using <a href="https://www.base64url.com/" target="_blank" rel="noopener">this online tool</a> or other available methods. The encoded version will appear like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>ewogICJyZXFfaXAiOiAiMTkyLjEyOC4wLjg5Igp9
 </span></span></code></pre></div><p> </p>
-<h3 id="trats-request">
-  TraTs Request
-  <a href="#trats-request">
+<h3 id="trat-request">
+  TraT Request
+  <a href="#trat-request">
     <span class="icon hashlink">
       <i class="fas fa-link"></i>
     </span>
@@ -337,9 +337,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--data-urlencode <span style="color:#e6db74">&#39;request_context=ewogICJyZXFfaXAiOiAiMTkyLjEyOC4wLjg5Igp9&#39;</span>
 </span></span></code></pre></div><p>You can execute this command directly from a terminal or from tools such as Postman to perform the TraT request.</p>
 <p> </p>
-<h3 id="trats-response">
-  TraTs Response
-  <a href="#trats-response">
+<h3 id="trat-response">
+  TraT Response
+  <a href="#trat-response">
     <span class="icon hashlink">
       <i class="fas fa-link"></i>
     </span>
@@ -403,8 +403,8 @@
     <li>
       <ul>
         <li><a href="#overview">Overview</a></li>
-        <li><a href="#trats-request">TraTs Request</a></li>
-        <li><a href="#trats-response">TraTs Response</a></li>
+        <li><a href="#trat-request">TraT Request</a></li>
+        <li><a href="#trat-response">TraT Response</a></li>
       </ul>
     </li>
   </ul>

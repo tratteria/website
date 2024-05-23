@@ -17,24 +17,24 @@ Quick-Start Configuration
 Running as a Native Go Server
 Running as a Docker Container
 Getting the Repository To get started, clone the Tratteria repository from GitHub:
-git clone https://github.com/SGNL-ai/Tratteria Quick Start Configuration Tratteria is configured using a YAML file. The quick-start configuration can be found at:
-https://github.com/SGNL-ai/tratteria/blob/main/example-configs/config.quick-start.yaml
+git clone https://github.com/tratteria/tratteria Quick Start Configuration Tratteria is configured using a YAML file. The quick-start configuration can be found at:
+https://github.com/tratteria/tratteria/blob/main/example-configs/config.quick-start.yaml
 The file contains the below configuration:</description>
     </item>
     
     <item>
-      <title>Generatting TraTs</title>
+      <title>Generating TraTs</title>
       <link>https://tratteria.io/docs/quickstart/generating-trats/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tratteria.io/docs/quickstart/generating-trats/</guid>
-      <description>This guide explains how to generate TraTs (TraTs) using Tratteria after its successful setup, as described in the Running Tratteria guide.
+      <description>This guide explains how to generate TraTs using Tratteria after its successful setup, as described in the Running Tratteria guide.
 Overview
 TraTs Request Parameters
 TraTs Request
 TraTs Response
-Overview Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate TraTs (TraTs). The service is accessible at localhost:9090 and provides the http endpoint POST /token_endpoint for token generation.
-TraTs Request Parameters To request TraTs (TraTs), the following parameters must be provided in the request:</description>
+Overview Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate TraTs. The service is accessible at localhost:9090 and provides the http endpoint POST /token_endpoint for token generation.
+TraT Request Parameters To request TraTs, the following parameters must be provided in the request:</description>
     </item>
     
     <item>
