@@ -1,33 +1,33 @@
 ---
-Title: "Generatting TraTs"
+Title: "Generating TraTs"
 weight: 2
 toc: true
 ---
 
-This guide explains how to generate TraTs (TraTs) using Tratteria after its successful setup, as described in the [Running Tratteria](/docs/quickstart/running-tratteria) guide.
+This guide explains how to generate TraTs using Tratteria after its successful setup, as described in the [Running Tratteria](/docs/quickstart/running-tratteria) guide.
 
 &nbsp;
 
 - [Overview](#overview)
 
-- [TraTs Request Parameters](#trats-request-parameters)
+- [TraTs Request Parameters](#trat-request-parameters)
 
-- [TraTs Request](#trats-request)
+- [TraTs Request](#trat-request)
 
-- [TraTs Response](#trats-response)
+- [TraTs Response](#trat-response)
 
 &nbsp;
 
 ### Overview
 
-Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate TraTs (TraTs). The service is accessible at `localhost:9090` and provides the http endpoint `POST /token_endpoint` for token generation.
+Once Tratteria is running, either as a native Go server or inside a Docker container, you can generate TraTs. The service is accessible at `localhost:9090` and provides the http endpoint `POST /token_endpoint` for token generation.
 
 
 &nbsp;
 
-#### TraTs Request Parameters
+#### TraT Request Parameters
 
-To request TraTs (TraTs), the following parameters must be provided in the request:
+To request TraTs, the following parameters must be provided in the request:
 
 **grant_type (REQUIRED)**
 
@@ -59,7 +59,7 @@ stocks.trade
 Set to
 
 ```plaintext
-urn:ietf:params:oauth:token-type:TraT
+urn:ietf:params:oauth:token-type:txn-token
 ```
 
 **subject_token (REQUIRED)**
@@ -87,7 +87,7 @@ The above JWT has the below body:
 }
 ```
 
-Tratteria verifies the signature of the self-signed subject tokens it receives in TraT requests. However, for simplicity, we have disabled the verification in the quick-start configuration. Therefore, there's need to concern ourselves with the keys used for signing these self-signed tokens in this guide. Nonetheless, in a production-level setting, you would enable this verification to ensure the security and integrity of self-signed tokens. For guidance on how to enable and configure this, please cleck [this guide](#).
+Tratteria verifies the signature of the self-signed subject tokens it receives in TraT requests. However, for simplicity, we have disabled the verification in the quick-start configuration. Therefore, there's need to concern ourselves with the keys used for signing these self-signed tokens in this guide. However, in a production-level setting, you would enable this verification to ensure the security and integrity of self-signed tokens. For guidance on how to enable and configure this, please cleck [this guide](#).
 
 **subject_token_type**
 
@@ -133,7 +133,7 @@ ewogICJyZXFfaXAiOiAiMTkyLjEyOC4wLjg5Igp9
 
 &nbsp;
 
-### TraTs Request
+### TraT Request
 
 With the above parameters, we will get the following TraT request:
 
@@ -155,7 +155,7 @@ You can execute this command directly from a terminal or from tools such as Post
 
 &nbsp;
 
-### TraTs Response
+### TraT Response
 
 A successful TraT response contains the following:
 

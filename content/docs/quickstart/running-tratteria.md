@@ -22,7 +22,7 @@ This quick-start guide outlines the steps to set up and run Tratteria for initia
 To get started, clone the Tratteria repository from GitHub:
 
 ```bash
-git clone https://github.com/SGNL-ai/Tratteria
+git clone https://github.com/tratteria/tratteria
 ```
 
 &nbsp;
@@ -30,7 +30,7 @@ git clone https://github.com/SGNL-ai/Tratteria
 
 Tratteria is configured using a YAML file. The quick-start configuration can be found at:
 
-[https://github.com/SGNL-ai/tratteria/blob/main/example-configs/config.quick-start.yaml](https://github.com/SGNL-ai/tratteria/blob/main/example-configs/config.quick-start.yaml)
+[https://github.com/tratteria/tratteria/blob/main/example-configs/config.quick-start.yaml](https://github.com/tratteria/tratteria/blob/main/example-configs/config.quick-start.yaml)
 
 The file contains the below configuration:
 
