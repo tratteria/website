@@ -46,7 +46,7 @@ Tratteria is configured using a YAML file, which is passed as a command line arg
 
 
 
-# The issuer URL indicates the TraT server that issues the token.
+# The issuer URL indicates the TraTs service that issues the token.
 issuer: https://example.org/tts
 
 # The audience URL defines the intended recipient of the token.
@@ -140,7 +140,7 @@ For both supplied and automatically generated keys, the public key JSON Web Key 
 
 ##### SPIFFE (Optional)
 
-Configuration for SPIFEE service-to-service trust. Tratteria supports authenticating the TraT requesting workloads using SPIRE. This is an optional field. When configured, it includes the following:
+Configuration for SPIFEE service-to-service trust. Tratteria supports authenticating the TraTs requesting workloads using SPIRE. This is an optional field. When configured, it includes the following:
 
   - **endpoint_socket (Required)**  
     Specifies the Unix socket for the SPIFFE endpoint.
