@@ -140,7 +140,7 @@ docker build -t tratteria:latest .
 Run the Docker container:
 ```bash
 docker run \
-  -v $(pwd)/config.quick-start.yaml:/app/config.yaml \
+  -v `pwd`/config.quick-start.yaml:/app/config.yaml \
   -p 9090:9090 \
   tratteria:latest /app/config.yaml
 ```
