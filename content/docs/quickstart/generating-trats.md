@@ -59,7 +59,7 @@ stocks.trade
 Set to
 
 ```plaintext
-urn:ietf:params:oauth:token-type:txn-token
+urn:ietf:params:oauth:token-type:txn_token
 ```
 
 **subject_token (REQUIRED)**
