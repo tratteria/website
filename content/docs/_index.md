@@ -134,6 +134,10 @@ The above specifies how to generate purpose and authorization details for the `P
 
 <img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
 
+<br>
+
+To integrate Tratteria into your microservice application, start by [installing Tratteria](/docs/installation).
+
 ## Acknowledgments
 
 This documentation and the underlying technology are based on the concepts and drafts developed by Atul Tulshibagwale (SGNL), George Fletcher (Capital One), and Pieter Kasselman (Microsoft).
