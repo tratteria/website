@@ -311,8 +311,45 @@
     </span>
   </a>
 </h2>
-<p>Tratteria is an open-source implementation of Transaction Tokens (TraTs) Service in Go. It&rsquo;s designed to facilitate secure, reliable, and efficient TraTs issuance and verification in microservices systems. Tratteria can be seamlessly integrated into existing systems.</p>
-<p>Tratteria supports a variety of configurations and is highly customizable to meet the specific needs of different environments. It is compatible with Service Meshes, Open Policy Agent (OPA), and SPIFFE, making it a flexible option for modern infrastructures. Whether you&rsquo;re running native services or containerized applications, Tratteria offers seamless integration.</p>
+<p>Tratteria is an open-source implementation of Transaction Tokens (TraTs) Service. It&rsquo;s designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.</p>
+<p>Tratteria support TraTs generation and verification using Kubernetes resources and Tratteria sidecar agents. It lets you define how to generate the TraT for an external API and how to verify the TraT for the resulting internal requests. Additionally, it supports access evaluation for external APIs. Below is a sample Tratteria Kubernetes resource for an external API:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraT</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stock-trade-api-trat</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;/api/order&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;POST&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">purp</span>: <span style="color:#ae81ff">stock-trade</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">azdMapping</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">stockId</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;${body.stockId}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">action</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;${body.orderType}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">quantity</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;${body.quantity}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">catalog</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;catalog/catalog-update/{#stock-id}?update-type={#action}&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;stocks/?id={#id}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">azd-mapping</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">stock</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;{$id}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">accessEvaluation</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">subject</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">id</span>: <span style="color:#e6db74">&#34;${subject_token.email}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">action</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;${scope}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">resource</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">stockId</span>: <span style="color:#e6db74">&#34;${body.stockId}&#34;</span>
+</span></span></code></pre></div><p>The above specifies how to generate purpose and authorization details for the <code>POST /api/order</code> API, and it specifies who (the <code>order</code>, <code>catalog</code>, and <code>stocks</code> services) and how to verify the generated TraT. Additionally, the <code>accessEvaluation</code> section specifies how to perform access evaluations for the API.</p>
 <img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
 <h2 id="acknowledgments">
   Acknowledgments
