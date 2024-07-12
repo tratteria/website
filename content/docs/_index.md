@@ -87,9 +87,50 @@ The Transaction Token Service (TraTs Service) issues TraTs to requesting workloa
 
 ## What is Tratteria?
 
-Tratteria is an open-source implementation of Transaction Tokens (TraTs) Service in Go. It's designed to facilitate secure, reliable, and efficient TraTs issuance and verification in microservices systems. Tratteria can be seamlessly integrated into existing systems.
+Tratteria is an open-source implementation of Transaction Tokens (TraTs) Service. It's designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.
 
-Tratteria supports a variety of configurations and is highly customizable to meet the specific needs of different environments. It is compatible with Service Meshes, Open Policy Agent (OPA), and SPIFFE, making it a flexible option for modern infrastructures. Whether you're running native services or containerized applications, Tratteria offers seamless integration.
+Tratteria support TraTs generation and verification using Kubernetes resources and Tratteria sidecar agents. It lets you define how to generate the TraT for an external API and how to verify the TraT for the resulting internal requests. Additionally, it supports access evaluation for external APIs. Below is a sample Tratteria Kubernetes resource for an external API:
+
+```yaml
+apiVersion: tratteria.io/v1alpha1
+kind: TraT
+metadata:
+  name: stock-trade-api-trat
+  namespace: alpha-stocks-dev
+spec:
+  endpoint: "/api/order"
+  method: "POST"
+  purp: stock-trade
+  azdMapping:
+    stockId:
+      required: true
+      value: "${body.stockId}"
+    action:
+      required: true
+      value: "${body.orderType}"
+    quantity:
+      required: true
+      value: "${body.quantity}"
+  services:
+    - name: order
+    - name: catalog
+      endpoint: "catalog/catalog-update/{#stock-id}?update-type={#action}"
+    - name: stocks
+      endpoint: "stocks/?id={#id}"
+      azd-mapping:
+        stock:
+          required: true
+          value: "{$id}"
+  accessEvaluation:
+    subject:
+      id: "${subject_token.email}"
+    action:
+      name: "${scope}"
+    resource:
+      stockId: "${body.stockId}"
+```
+
+The above specifies how to generate purpose and authorization details for the `POST /api/order` API, and it specifies who (the `order`, `catalog`, and `stocks` services) and how to verify the generated TraT. Additionally, the `accessEvaluation` section specifies how to perform access evaluations for the API.
 
 <img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
 
