@@ -4,7 +4,7 @@ weight: 1
 toc: true
 ---
 
-[Tconfigd](https://github.com/tratteria/tconfigd) is a central daemon that manages Tratteria configurations. To get started with Tratteria, we first need to install Tconfigd. Please follow the instructions from [Tconfigd's installation readme](https://github.com/tratteria/tconfigd/tree/main/installation) to install Tconfigd.
+[Tconfigd](https://github.com/tratteria/tconfigd) is a central daemon that manages Tratteria configurations. To get started with Tratteria, first install Tconfigd following the instructions from [Tconfigd's installation readme](https://github.com/tratteria/tconfigd/tree/main/installation).
 
 After successfully installing Tconfigd, you should be able to see a running Tconfigd pod in the tratteria-system namespace.
 

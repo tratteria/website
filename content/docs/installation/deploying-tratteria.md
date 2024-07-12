@@ -4,9 +4,9 @@ weight: 2
 toc: true
 ---
 
-[Tratteria Service](https://github.com/tratteria/tratteria) is an open source Transaction Tokens (TraTs) Service. It is responsible for generating TraTs. 
+[Tratteria Service](https://github.com/tratteria/tratteria) is an open source Transaction Tokens (TraTs) Service, which is responsible for issuing TraTs. 
 
-[Tconfigd](/docs/installation/installing-tconfigd) runs in its own dedicated namespace and is cluster-specific. But, the Tratteria service operates in the application namespace. We must deploy different Tratteria services for different application environments or namespaces.
+While [Tconfigd](/docs/installation/installing-tconfigd) runs in its own dedicated namespace and is cluster-specific, Tratteria service operates in the application namespace and must be deployed seperately for different application environments or namespaces.
 
 Please follow the instructions from [Tratteria's deployment readme](https://github.com/tratteria/tratteria/tree/main/kubernetes) to deploy Tratteria service.
 
