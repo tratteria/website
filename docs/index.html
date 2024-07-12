@@ -151,6 +151,12 @@
           </ul>
         </li>
     
+        <li><a  class="active"  href="/docs/transaction-token/">Transaction Tokens (TraTs)</a>
+          <ul>
+            
+          </ul>
+        </li>
+    
 
 </nav>
 
@@ -167,140 +173,10 @@
     padding: 0;
 }
 </style>
-<p>Welcome to the documentation for Tratteria, an open-source Transaction Tokens (TraTs) Service. This section provides an overview of TraTs and Tratteria.</p>
-<h2 id="background">
-  Background
-  <a href="#background">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h2>
-<h3 id="microservices">
-  Microservices
-  <a href="#microservices">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h3>
-<p>A microservices architecture breaks down applications into smaller, independent services that interact through well-defined APIs. This approach offers several advantages including enhanced development velocity and independent development and release cycles.</p>
-<p>Microservices are deployed and run within a secured &ldquo;virtual private cloud&rdquo; (VPC).</p>
-<img src="/img/docs/introduction/microservices.svg" alt="Microservices Diagram" class="doc-image">
-<h3 id="security-limitations-of-vpcs">
-  Security Limitations of VPCs
-  <a href="#security-limitations-of-vpcs">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h3>
-<p>Despite providing a layer of security, VPCs are not impervious to threats:</p>
-<ul>
-<li><strong>Software Supply Chain Vulnerabilities:</strong> Malicious code can enter VPCs through the supply chain, potentially leading to Remote Code Execution (RCE) attacks within cloud environment.</li>
-<li><strong>Privileged User Compromise:</strong> Insiders or attackers with elevated privileges can exploit their access, often remaining undetected and causing significant damage.</li>
-</ul>
-<h3 id="vpcs-need-more-security">
-  VPCs Need More Security
-  <a href="#vpcs-need-more-security">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h3>
-<p>VPCs often rely on implicit trust models that can leave systems vulnerable. To enhance security, it&rsquo;s essential to transition towards a context-aware security model:</p>
-<img src="/img/docs/introduction/vpc_security_concerns.svg" alt="VPC Security Concerns Diagram" class="doc-image">
-<ul>
-<li><strong>Implicit Trust</strong>: Services within the VPC trust each other.</li>
-<li><strong>Service-to-Service Trust:</strong> Establishes mutual authentication and authorization between services. This is sometimes achieved using <a href="https://spiffe.io/" target="_blank" rel="noopener">SPIFFE</a></li>
-<li><strong>User Trust:</strong> Extends service-to-service trust to also assures the identity of the user making the request, confirming users are who they claim to be. Some developers pass external ID Tokens to assert the identity of the calling user, or use OAuth <a href="https://datatracker.ietf.org/doc/html/rfc7662" target="_blank" rel="noopener">Token Introspection</a> in order to obtain the identity of the user initiating the transaction. Both these approaches are susceptible to token replay attacks.</li>
-<li><strong>Assured Context</strong>: Extends user trust to also assure the authorization context of the request. This can be achieved using TraTs.</li>
-</ul>
-<h2 id="moving-toward-assured-context-with-transaction-tokens">
-  Moving Toward Assured Context with Transaction Tokens
-  <a href="#moving-toward-assured-context-with-transaction-tokens">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h2>
-<p>To address these vulnerabilities, TraTs represent an evolution from traditional security measures to a more robust, context-aware framework. TraTs offer assurance of both user identity and authorization context at every step of a transaction.</p>
-<h3 id="transaction-tokens-trats">
-  Transaction Tokens (TraTs)
-  <a href="#transaction-tokens-trats">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h3>
-<p>TraTs are short-lived, cryptographically signed JSON Web Tokens that immutably preserve the user identity and authorization context of an external API invocation. They ensure that the user identity and authorization details of an external request, such as an API call, are maintained across all involved services within a microservices application. Additionally, TraTs enable these services to assert their involvement in the transaction chain to downstream workloads.</p>
-<h3 id="benefits-of-trats">
-  Benefits of TraTs
-  <a href="#benefits-of-trats">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h3>
-<p>TraTs offer the following benefits:</p>
-<ul>
-<li>
-<p><strong>Prevention of Spurious Invocations</strong>: By verifying the presence of an external trigger, TraTs help prevent unauthorized internal calls within the network.</p>
-</li>
-<li>
-<p><strong>Immutable Context Preservation</strong>: TraTs ensure that the user identity and authorization context of an external request are preserved across all workloads that process the request, helping prevent impersonation and unauthorized parameter modification.</p>
-</li>
-<li>
-<p><strong>Call Chain Assertion</strong>: Allows workloads to immutably assert to downstream workloads that they were invoked in the call chain of the request.</p>
-</li>
-<li>
-<p><strong>Reduction of Blast Radius</strong>: By validating each invocation in the chain, TraTs reduce the blast radius of security incidents. This limits the impact of compromised workloads, or malicious insiders, enhancing overall security and trust within the system.</p>
-</li>
-<li>
-<p><strong>Short-Lived Tokens</strong>: TraTs are designed to be short-lived (e.g., 15 seconds), minimizing the risk of replay attacks if a token is discovered by an attacker.</p>
-</li>
-<li>
-<p><strong>Independence from Access Tokens</strong>: TraTs do not incorporate external access tokens, thereby limiting exposure and minimizing the risk of token theft.</p>
-</li>
-<li>
-<p><strong>Request Context Preservation</strong>: Preserves relevant request context information, such as IP address, authentication method, and requester workload, which can help downstream services make informed authorization decisions.</p>
-</li>
-</ul>
-<h2 id="trats-service">
-  TraTs Service
-  <a href="#trats-service">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h2>
-<p>The Transaction Token Service (TraTs Service) issues TraTs to requesting workloads. Requesting workloads authenticate to the TraTs Service and request tokens by providing the necessary context, which the service uses to generate TraTs. A limited, pre-configured set of workloads, typically only the API gateway, can request TraTs. Secure methods, such as SPIFFE, are used to authenticate these workloads.</p>
-<h3 id="how-it-works">
-  How it Works
-  <a href="#how-it-works">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h3>
-<ul>
-<li><strong>Initial Invocation</strong>: When a user invokes an external endpoint in an API microservice, the service authenticates the request using conventional authorization mechanisms (e.g., OAuth 2.0).</li>
-<li><strong>Token Request</strong>: The API microservice uses a specific profile of OAuth Token Exchange (defined in the Transaction Tokens <a href="https://datatracker.ietf.org/doc/draft-ietf-oauth-transaction-tokens/" target="_blank" rel="noopener">draft</a>) to request a TraT from the TraTs Service, providing context about the request, such as request parameters, user’s identity, and the initial authorization token.</li>
-<li><strong>Token Issuance</strong>: The TraTs Service verifies the requesting service using secure methods such as SPIFFE, validates the request, and issues a TraT that includes immutable information about the user and the context of the request.</li>
-<li><strong>Propagation</strong>: The API microservice uses the TraT to authorize its subsequent calls to internal services. These downstream services reuse the same token to authorize their subsequent calls to other services.</li>
-<li><strong>Verification</strong>: Each service in the call chain independently verify the TraT to ensure that the request is valid and that the context has not been tampered with.</li>
-</ul>
-<img src="/img/docs/introduction/how_it_works.svg" alt="How It Works" class="doc-image">
-<h2 id="what-is-tratteria">
-  What is Tratteria?
-  <a href="#what-is-tratteria">
-    <span class="icon hashlink">
-      <i class="fas fa-link"></i>
-    </span>
-  </a>
-</h2>
-<p>Tratteria is an open-source implementation of Transaction Tokens (TraTs) Service. It&rsquo;s designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.</p>
-<p>Tratteria support TraTs generation and verification using Kubernetes resources and Tratteria sidecar agents. It lets you define how to generate the TraT for an external API and how to verify the TraT for the resulting internal requests. Additionally, it supports access evaluation for external APIs. Below is a sample Tratteria Kubernetes resource for an external API:</p>
+<p>Welcome to the documentation for Tratteria, an open-source <a href="/docs/transaction-token">Transaction Tokens (TraTs)</a> Service. Tratteria is designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.</p>
+<img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
+<br>
+<p>Tratteria supports TraTs generation and verification using Kubernetes resources and Tratteria sidecar agents. Tratteria lets you define how to generate the TraT for an external API and how to verify the TraT for the resulting internal requests of the external API. Additionally, Tratteria supports access evaluation for external APIs. Below is a sample Tratteria Kubernetes resource for an external API:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraT</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
@@ -338,8 +214,6 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">resource</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">stockId</span>: <span style="color:#e6db74">&#34;${body.stockId}&#34;</span>
 </span></span></code></pre></div><p>The above specifies how to generate purpose and authorization details for the <code>POST /api/order</code> API, and it specifies who (the <code>order</code>, <code>catalog</code>, and <code>stocks</code> services) and how to verify the generated TraT. Additionally, the <code>accessEvaluation</code> section specifies how to perform access evaluations for the API.</p>
-<img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
-<br>
 <p>To integrate Tratteria into your microservice application, start by <a href="/docs/installation">installing Tratteria</a>.</p>
 <h2 id="acknowledgments">
   Acknowledgments
@@ -364,25 +238,6 @@
     <p> On this page:</p>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#background">Background</a>
-      <ul>
-        <li><a href="#microservices">Microservices</a></li>
-        <li><a href="#security-limitations-of-vpcs">Security Limitations of VPCs</a></li>
-        <li><a href="#vpcs-need-more-security">VPCs Need More Security</a></li>
-      </ul>
-    </li>
-    <li><a href="#moving-toward-assured-context-with-transaction-tokens">Moving Toward Assured Context with Transaction Tokens</a>
-      <ul>
-        <li><a href="#transaction-tokens-trats">Transaction Tokens (TraTs)</a></li>
-        <li><a href="#benefits-of-trats">Benefits of TraTs</a></li>
-      </ul>
-    </li>
-    <li><a href="#trats-service">TraTs Service</a>
-      <ul>
-        <li><a href="#how-it-works">How it Works</a></li>
-      </ul>
-    </li>
-    <li><a href="#what-is-tratteria">What is Tratteria?</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ul>
 </nav>
