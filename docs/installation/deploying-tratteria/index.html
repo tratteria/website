@@ -86,6 +86,66 @@
       <div class="container mt-4 mb-4 pb-2">
   <section class="row">
       
+          
+
+<div class="col col-11 breadcrumb" aria-label="breadcrumbs">
+  <ul class="mb-0 pt-2" style="vertical-align: middle">
+    
+
+  
+
+  
+
+  
+
+
+
+<li >
+  / <a href="/">
+    Home
+  </a>
+</li>
+
+
+
+
+<li >
+  / <a href="/docs/">
+    Introduction to Tratteria
+  </a>
+</li>
+
+
+
+
+<li >
+  / <a href="/docs/installation/">
+    Installing Tratteria
+  </a>
+</li>
+
+
+
+
+<li  class="is-active">
+  / <a href="/docs/installation/deploying-tratteria/">
+    Deploying Tratteria Service
+  </a>
+</li>
+
+  </ul>
+</div>
+
+          <div>
+    
+    
+    
+    <a href="https://github.com/tratteria/website/blob/main/content/docs/installation/deploying-tratteria.md" class="btn btn-primary" target="_blank">
+      <i class="fas fa-pen"></i>
+    </a>
+</div>
+
+      
   </section>
 </section>
 </div>
@@ -93,7 +153,7 @@
     </div>
   </header>
   <div class="container">
-      <section class="row">
+      <section class="row">        
         <section class="col">
            
  
@@ -156,9 +216,23 @@
 
         </section>
         <section class="col col-8">
-          <h1 class="title">TraT Format</h1>
+          <h1 class="title">Deploying Tratteria Service</h1>
           <p class="subtitle"></p>
           
+<div class="content">
+  <p><a href="https://github.com/tratteria/tratteria" target="_blank" rel="noopener">Tratteria Service</a> is an open source Transaction Tokens (TraTs) Service. It is responsible for generating TraTs.</p>
+<p><a href="/docs/installation/installing-tconfigd">Tconfigd</a> runs in its own dedicated namespace and is cluster-specific. But, the Tratteria service operates in the application namespace. We must deploy different Tratteria services for different application environments or namespaces.</p>
+<p>Please follow the instructions from <a href="https://github.com/tratteria/tratteria/tree/main/kubernetes" target="_blank" rel="noopener">Tratteria&rsquo;s deployment readme</a> to deploy Tratteria service.</p>
+<p>After successfully deploying Tratteria service, you should be able to see running Tratteria service pods in the application namespace. For example, below is the running Tratteria pods from the <a href="https://github.com/tratteria/example-application" target="_blank" rel="noopener">Tratteria example application&rsquo;s</a> dev environment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get pod -n alpha-stocks-dev | grep tratteria
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tratteria-7b89b4f498-6kgd2   1/1     Running   <span style="color:#ae81ff">0</span>          22m
+</span></span><span style="display:flex;"><span>tratteria-7b89b4f498-hgxct   1/1     Running   <span style="color:#ae81ff">0</span>          22m
+</span></span><span style="display:flex;"><span>tratteria-7b89b4f498-tlrqd   1/1     Running   <span style="color:#ae81ff">0</span>          22m
+</span></span></code></pre></div><p>Next, proceed to <a href="/docs/installation/setting-up-tratteria-agents">Setting up Tratteria agents</a>, a sidecar for verifying Transaction Tokens (TraTs).</p>
+
+</div>
+
 
         </section>
         <section class="col d-none d-lg-block">
@@ -173,6 +247,7 @@
 
 
         </section>
+
       </section>
     </div>
 

@@ -109,49 +109,37 @@
         
         </li>
     
-        <li><a  class="active"  href="/docs/quickstart/">Quickstart Guide for Tratteria</a>
+        <li><a  class="active"  href="/docs/installation/">Installing Tratteria</a>
           <ul>
             
             <li>
-                <a  class="active"  href="/docs/quickstart/running-tratteria/">Running Tratteria</a>
+                <a  class="active"  href="/docs/installation/installing-tconfigd/">Installing Tconfigd</a>
             </li>
             
             <li>
-                <a  class="active"  href="/docs/quickstart/generating-trats/">Generating TraTs</a>
+                <a  class="active"  href="/docs/installation/deploying-tratteria/">Deploying Tratteria Service</a>
             </li>
             
             <li>
-                <a  class="active"  href="/docs/quickstart/verifying-trats/">Verifying TraTs</a>
+                <a  class="active"  href="/docs/installation/setting-up-tratteria-agents/">Setting Up Tratteria Agents</a>
             </li>
             
           </ul>
         </li>
     
-        <li><a  class="active"  href="/docs/configuration/">Configuration Guide</a>
+        <li><a  class="active"  href="/docs/generating-and-verifying-trats/">Generating and Verifying TraTs</a>
           <ul>
             
           </ul>
         </li>
     
-        <li><a  class="active"  href="/docs/integration/">Integration Guide</a>
+        <li><a  class="active"  href="/docs/configuration-guide/">Configuration Guide</a>
           <ul>
             
           </ul>
         </li>
     
         <li><a  class="active"  href="/docs/txn-token-format/">TraT Format</a>
-          <ul>
-            
-          </ul>
-        </li>
-    
-        <li><a  class="active"  href="/docs/replacement-txn-token/">Replacement TraTs</a>
-          <ul>
-            
-          </ul>
-        </li>
-    
-        <li><a  class="active"  href="/docs/call-chain-verification/">Call Chain Verification</a>
           <ul>
             
           </ul>
@@ -351,6 +339,8 @@
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">stockId</span>: <span style="color:#e6db74">&#34;${body.stockId}&#34;</span>
 </span></span></code></pre></div><p>The above specifies how to generate purpose and authorization details for the <code>POST /api/order</code> API, and it specifies who (the <code>order</code>, <code>catalog</code>, and <code>stocks</code> services) and how to verify the generated TraT. Additionally, the <code>accessEvaluation</code> section specifies how to perform access evaluations for the API.</p>
 <img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
+<br>
+<p>To integrate Tratteria into your microservice application, start by <a href="/docs/installation">installing Tratteria</a>.</p>
 <h2 id="acknowledgments">
   Acknowledgments
   <a href="#acknowledgments">
@@ -424,7 +414,7 @@
       
 
 
-<a class="btn text-light" style="background-color: #000000" href="https://github.com/SGNL-ai/Tratteria">
+<a class="btn text-light" style="background-color: #000000" href="https://github.com/tratteria">
     
     <span class="icon">
       <i class="fab fa-github"></i>

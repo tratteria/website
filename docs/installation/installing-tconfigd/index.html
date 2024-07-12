@@ -86,6 +86,66 @@
       <div class="container mt-4 mb-4 pb-2">
   <section class="row">
       
+          
+
+<div class="col col-11 breadcrumb" aria-label="breadcrumbs">
+  <ul class="mb-0 pt-2" style="vertical-align: middle">
+    
+
+  
+
+  
+
+  
+
+
+
+<li >
+  / <a href="/">
+    Home
+  </a>
+</li>
+
+
+
+
+<li >
+  / <a href="/docs/">
+    Introduction to Tratteria
+  </a>
+</li>
+
+
+
+
+<li >
+  / <a href="/docs/installation/">
+    Installing Tratteria
+  </a>
+</li>
+
+
+
+
+<li  class="is-active">
+  / <a href="/docs/installation/installing-tconfigd/">
+    Installing Tconfigd
+  </a>
+</li>
+
+  </ul>
+</div>
+
+          <div>
+    
+    
+    
+    <a href="https://github.com/tratteria/website/blob/main/content/docs/installation/installing-tconfigd.md" class="btn btn-primary" target="_blank">
+      <i class="fas fa-pen"></i>
+    </a>
+</div>
+
+      
   </section>
 </section>
 </div>
@@ -93,7 +153,7 @@
     </div>
   </header>
   <div class="container">
-      <section class="row">
+      <section class="row">        
         <section class="col">
            
  
@@ -109,49 +169,37 @@
         
         </li>
     
-        <li><a  href="/docs/quickstart/">Quickstart Guide for Tratteria</a>
+        <li><a  href="/docs/installation/">Installing Tratteria</a>
           <ul>
             
             <li>
-                <a  href="/docs/quickstart/running-tratteria/">Running Tratteria</a>
+                <a  href="/docs/installation/installing-tconfigd/">Installing Tconfigd</a>
             </li>
             
             <li>
-                <a  href="/docs/quickstart/generating-trats/">Generating TraTs</a>
+                <a  href="/docs/installation/deploying-tratteria/">Deploying Tratteria Service</a>
             </li>
             
             <li>
-                <a  href="/docs/quickstart/verifying-trats/">Verifying TraTs</a>
+                <a  href="/docs/installation/setting-up-tratteria-agents/">Setting Up Tratteria Agents</a>
             </li>
             
           </ul>
         </li>
     
-        <li><a  href="/docs/configuration/">Configuration Guide</a>
+        <li><a  href="/docs/generating-and-verifying-trats/">Generating and Verifying TraTs</a>
           <ul>
             
           </ul>
         </li>
     
-        <li><a  href="/docs/integration/">Integration Guide</a>
+        <li><a  href="/docs/configuration-guide/">Configuration Guide</a>
           <ul>
             
           </ul>
         </li>
     
         <li><a  href="/docs/txn-token-format/">TraT Format</a>
-          <ul>
-            
-          </ul>
-        </li>
-    
-        <li><a  href="/docs/replacement-txn-token/">Replacement TraTs</a>
-          <ul>
-            
-          </ul>
-        </li>
-    
-        <li><a  href="/docs/call-chain-verification/">Call Chain Verification</a>
           <ul>
             
           </ul>
@@ -168,23 +216,17 @@
 
         </section>
         <section class="col col-8">
-          <h1 class="title">Quickstart Guide for Tratteria</h1>
+          <h1 class="title">Installing Tconfigd</h1>
           <p class="subtitle"></p>
           
 <div class="content">
-  <p>This tutorial is designed to help you run Tratteria as a standalone service for initial learning and evaluation. Please note that this setup omits crucial security and performance settings and <strong>SHOULD NOT</strong> be used in a production setting.</p>
-<p> </p>
-<ul>
-<li>
-<p><a href="/docs/quickstart/running-tratteria">Running Tratteria</a></p>
-</li>
-<li>
-<p><a href="/docs/quickstart/generating-trats">Generating TraTs</a></p>
-</li>
-<li>
-<p><a href="/docs/quickstart/verifying-trats">Verifying TraTs</a></p>
-</li>
-</ul>
+  <p><a href="https://github.com/tratteria/tconfigd" target="_blank" rel="noopener">Tconfigd</a> is a central daemon that manages Tratteria configurations. To get started with Tratteria, we first need to install Tconfigd. Please follow the instructions from <a href="https://github.com/tratteria/tconfigd/tree/main/installation" target="_blank" rel="noopener">Tconfigd&rsquo;s installation readme</a> to install Tconfigd.</p>
+<p>After successfully installing Tconfigd, you should be able to see a running Tconfigd pod in the tratteria-system namespace.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get pod -n tratteria-system
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NAME                        READY   STATUS    RESTARTS   AGE
+</span></span><span style="display:flex;"><span>tconfigd-85c5697c9b-4lx4s   1/1     Running   <span style="color:#ae81ff">0</span>          88s
+</span></span></code></pre></div><p>Next, proceed to <a href="/docs/installation/deploying-tratteria">deploy Tratteria service</a>, an open-source service for managing Transaction Tokens (TraTs).</p>
 
 </div>
 
@@ -202,6 +244,7 @@
 
 
         </section>
+
       </section>
     </div>
 
@@ -226,7 +269,7 @@
       
 
 
-<a class="btn text-light" style="background-color: #000000" href="https://github.com/SGNL-ai/Tratteria">
+<a class="btn text-light" style="background-color: #000000" href="https://github.com/tratteria">
     
     <span class="icon">
       <i class="fab fa-github"></i>
