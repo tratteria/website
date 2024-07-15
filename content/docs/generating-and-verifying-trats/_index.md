@@ -6,17 +6,17 @@ toc: true
 
 To generate and verify TraTs, you must first write configurations specifying how to generate the TraT for a particular external API and how to verify the TraT for its resultant internal requests. This can be specified by defining the following resources:
 
-1. [TraT](/docs/configuration-guide#trats)
+1. [TraT](/docs/configuration-guide/trat)
 
-    Outlines the method for generating the TraT for an external API and details the verification rules for all resultant internal requests. For more information, see [TraT](/docs/configuration-guide#trats).
+    Outlines the method for generating the TraT for an external API and details the verification rules for all resultant internal requests. For more information, see [TraT](/docs/configuration-guide/trat).
 
-2. [TraTExclusion](/docs/configuration-guide#tratexclusion)
+2. [TraTExclusion](/docs/configuration-guide/trat-exclusion)
 
-    Defines which endpoints within a microservice should bypass TraT verification. This is useful for non-functional APIs such as health and monitoring endpoints, or functional endpoints that are not yet TraT-ready. For further details, refer to [TraTExclusion](/docs/configuration-guide#tratexclusion).
+    Defines which endpoints within a microservice should bypass TraT verification. This is useful for non-functional APIs such as health and monitoring endpoints, or functional endpoints that are not yet TraT-ready. For further details, refer to [TraTExclusion](/docs/configuration-guide/trat-exclusion).
 
-3. [TratteriaConfig](/docs/configuration-guide#tratteriaconfig)
+3. [TratteriaConfig](/docs/configuration-guide/tratteria-config)
 
-    Establishes general TraT configurations applicable across all external APIs. Detailed information can be found at [TratteriaConfig](/docs/configuration-guide#tratteriaconfig).
+    Establishes general TraT configurations applicable across all external APIs. Detailed information can be found at [TratteriaConfig](/docs/configuration-guide/tratteria-config).
 
 
 <br>
