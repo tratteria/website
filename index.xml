@@ -58,7 +58,7 @@ apiVersion: tratteria.io/v1alpha1 kind: TraTExclusion metadata: name: order-trat
       <guid>https://tratteria.io/docs/installation/setting-up-tratteria-agents/</guid>
       <description>Tratteria Agents are sidecar container agents that verify TraTs in microservices.
 Tratteria agents are injected into microservices pods to verify TraTs. To integrate Tratteria agents into microservices, follow the instructions from Tratteria Agent&amp;rsquo;s readme.
-After successfully integrating Tratteria Agents, you should be able to see running Tratteria agent sidecars alongside your application microservices pods. For example, below are the running Order service pods from the Tratteria example application&amp;rsquo;s dev environment.</description>
+After successfully integrating Tratteria Agents, you should be able to see running Tratteria agent sidecars alongside your application microservices containers. For example, below are the running Order service pods from the Tratteria example application&amp;rsquo;s dev environment.</description>
     </item>
     
     <item>
