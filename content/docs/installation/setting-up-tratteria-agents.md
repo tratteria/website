@@ -8,7 +8,7 @@ toc: true
 
 Tratteria agents are injected into microservices pods to verify TraTs. To integrate Tratteria agents into microservices, follow the instructions from [Tratteria Agent's readme](https://github.com/tratteria/tratteria-agent/blob/main/README.md).
 
-After successfully integrating Tratteria Agents, you should be able to see running Tratteria agent sidecars alongside your application microservices pods. For example, below are the running Order service pods from the [Tratteria example application's](https://github.com/tratteria/example-application) dev environment.
+After successfully integrating Tratteria Agents, you should be able to see running Tratteria agent sidecars alongside your application microservices containers. For example, below are the running Order service pods from the [Tratteria example application's](https://github.com/tratteria/example-application) dev environment.
 
 ```bash
 kubectl get pod -n alpha-stocks-dev | grep order
