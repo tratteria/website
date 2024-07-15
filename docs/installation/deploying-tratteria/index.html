@@ -196,17 +196,21 @@
         <li><a  href="/docs/configuration-guide/">Configuration Guide</a>
           <ul>
             
-          </ul>
-        </li>
-    
-        <li><a  href="/docs/txn-token-format/">TraT Format</a>
-          <ul>
+            <li>
+                <a  href="/docs/configuration-guide/trat/">TraT</a>
+            </li>
             
-          </ul>
-        </li>
-    
-        <li><a  href="/docs/access-evaluation/">Access Evaluation</a>
-          <ul>
+            <li>
+                <a  href="/docs/configuration-guide/trat-exclusion/">TraTExclusion</a>
+            </li>
+            
+            <li>
+                <a  href="/docs/configuration-guide/tratteria-config/">TratteriaConfig</a>
+            </li>
+            
+            <li>
+                <a  href="/docs/configuration-guide/example-application-configs/">Example Application Configurations</a>
+            </li>
             
           </ul>
         </li>
@@ -226,8 +230,8 @@
           <p class="subtitle"></p>
           
 <div class="content">
-  <p><a href="https://github.com/tratteria/tratteria" target="_blank" rel="noopener">Tratteria Service</a> is an open source Transaction Tokens (TraTs) Service. It is responsible for generating TraTs.</p>
-<p><a href="/docs/installation/installing-tconfigd">Tconfigd</a> runs in its own dedicated namespace and is cluster-specific. But, the Tratteria service operates in the application namespace. We must deploy different Tratteria services for different application environments or namespaces.</p>
+  <p><a href="https://github.com/tratteria/tratteria" target="_blank" rel="noopener">Tratteria Service</a> is an open source <a href="/docs/transaction-token">Transaction Tokens (TraTs)</a> Service, which is responsible for issuing TraTs.</p>
+<p>While <a href="/docs/installation/installing-tconfigd">Tconfigd</a> runs in its own dedicated namespace and is cluster-specific, Tratteria service operates in the application namespace and must be deployed seperately for different application environments or namespaces.</p>
 <p>Please follow the instructions from <a href="https://github.com/tratteria/tratteria/tree/main/kubernetes" target="_blank" rel="noopener">Tratteria&rsquo;s deployment readme</a> to deploy Tratteria service.</p>
 <p>After successfully deploying Tratteria service, you should be able to see running Tratteria service pods in the application namespace. For example, below is the running Tratteria pods from the <a href="https://github.com/tratteria/example-application" target="_blank" rel="noopener">Tratteria example application&rsquo;s</a> dev environment.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get pod -n alpha-stocks-dev | grep tratteria

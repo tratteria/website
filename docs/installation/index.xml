@@ -11,10 +11,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tratteria.io/docs/installation/installing-tconfigd/</guid>
-      <description>Tconfigd is a central daemon that manages Tratteria configurations. To get started with Tratteria, we first need to install Tconfigd. Please follow the instructions from Tconfigd&amp;rsquo;s installation readme to install Tconfigd.
+      <description>Tconfigd is a central daemon that manages Tratteria configurations. To get started with Tratteria, first install Tconfigd following the instructions from Tconfigd&amp;rsquo;s installation readme.
 After successfully installing Tconfigd, you should be able to see a running Tconfigd pod in the tratteria-system namespace.
 kubectl get pod -n tratteria-system Output:
-NAME READY STATUS RESTARTS AGE tconfigd-85c5697c9b-4lx4s 1/1 Running 0 88s Next, proceed to deploy Tratteria service, an open-source service for managing Transaction Tokens (TraTs).</description>
+NAME READY STATUS RESTARTS AGE tconfigd-85c5697c9b-4lx4s 1/1 Running 0 88s Next, proceed to deploy Tratteria service, an open source Transaction Tokens (TraTs) Service.</description>
     </item>
     
     <item>
@@ -23,8 +23,8 @@ NAME READY STATUS RESTARTS AGE tconfigd-85c5697c9b-4lx4s 1/1 Running 0 88s Next,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tratteria.io/docs/installation/deploying-tratteria/</guid>
-      <description>Tratteria Service is an open source Transaction Tokens (TraTs) Service. It is responsible for generating TraTs.
-Tconfigd runs in its own dedicated namespace and is cluster-specific. But, the Tratteria service operates in the application namespace. We must deploy different Tratteria services for different application environments or namespaces.
+      <description>Tratteria Service is an open source Transaction Tokens (TraTs) Service, which is responsible for issuing TraTs.
+While Tconfigd runs in its own dedicated namespace and is cluster-specific, Tratteria service operates in the application namespace and must be deployed seperately for different application environments or namespaces.
 Please follow the instructions from Tratteria&amp;rsquo;s deployment readme to deploy Tratteria service.
 After successfully deploying Tratteria service, you should be able to see running Tratteria service pods in the application namespace.</description>
     </item>

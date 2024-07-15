@@ -5,5 +5,50 @@
     <link>https://tratteria.io/docs/configuration-guide/</link>
     <description>Recent content in Configuration Guide on Tratteria</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://tratteria.io/docs/configuration-guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TraT</title>
+      <link>https://tratteria.io/docs/configuration-guide/trat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tratteria.io/docs/configuration-guide/trat/</guid>
+      <description>A TraT resource corresponds to a TraT type, defining a TraT for an external API. It defines how to generate the TraT for an external API and how to verify the TraT in the resulting internal requests. Additionally, it supports access evaluation for external APIs. A TraT resource comprises four sections: External API Specification, TraT Generation, TraT Verification, and Access Evaluation.
+The external API specification section specifies the external API for which the TraT is defined.</description>
+    </item>
+    
+    <item>
+      <title>TraTExclusion</title>
+      <link>https://tratteria.io/docs/configuration-guide/trat-exclusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tratteria.io/docs/configuration-guide/trat-exclusion/</guid>
+      <description>The TraTExclusion resource is used to specify endpoints of a service that do not require TraTs. This is particularly useful for non-functional APIs, such as health checks and monitoring, or for functional APIs that have not yet been adapted to support TraTs. The configuration is specific to each service.
+Below is an example of TraTExclusion for the order service:
+apiVersion: tratteria.io/v1alpha1 kind: TraTExclusion metadata: name: order-trat-exclusion service: order spec: endpoints: - path: &amp;#34;/health&amp;#34; method: &amp;#34;GET&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>TratteriaConfig</title>
+      <link>https://tratteria.io/docs/configuration-guide/tratteria-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tratteria.io/docs/configuration-guide/tratteria-config/</guid>
+      <description>The TratteriaConfig resource defines general configuration settings that apply to all APIs and TraTs within a specified Kubernetes namespace.
+Let&amp;rsquo;s delve into the details of TraTs by examining an example.
+apiVersion: tratteria.io/v1alpha1 kind: TratteriaConfig metadata: name: alpha-stocks-tratteriacfg namespace: alpha-stocks-dev spec: token: issuer: &amp;#34;https://alphastocks.com/tratteria&amp;#34; audience: &amp;#34;https://alphastocks.com/&amp;#34; lifeTime: &amp;#34;15s&amp;#34; subjectTokens: OIDC: clientId: alpha-stocks-client providerURL: http://dex:5556/dex subjectField: email selfSigned: validation: false jwksEndpoint: &amp;#34;http://alphastocks.com/oidcprovider/.well-known/jwks.json&amp;#34; accessEvaluationAPI: enableAccessEvaluation: false endpoint: &amp;#34;https://alphastocks.authzen.com/access/v1/evaluation&amp;#34; authentication: method: &amp;#34;Bearer&amp;#34; token: value: &amp;#34;${AUTHORIZATION_API_BEARER_TOKEN}&amp;#34; tokenGenerationAuthorizedServiceIds: - &amp;#34;spiffe://dev.</description>
+    </item>
+    
+    <item>
+      <title>Example Application Configurations</title>
+      <link>https://tratteria.io/docs/configuration-guide/example-application-configs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tratteria.io/docs/configuration-guide/example-application-configs/</guid>
+      <description>Below are the Tratteria Kubernetes resources for the Tratteria example application. These examples can serve as references when writing the resources for your microservices application.
+TraTs The Tratteria example application has five external APIs; consequently, there are five TraT resources.
+stock-details-api.yaml:
+apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-details-api-trat namespace: alpha-stocks-dev spec: endpoint: &amp;#34;/api/stocks/details/{#stockId}&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-details azdMapping: stockId: required: true value: &amp;#34;${stockId}&amp;#34; services: - name: stocks stock-holdings-api.yaml:
+apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-holdings-api-trat namespace: alpha-stocks-dev spec: endpoint: &amp;#34;/api/stocks/holdings&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-holdings services: - name: stocks stock-search-api.</description>
+    </item>
+    
   </channel>
 </rss>

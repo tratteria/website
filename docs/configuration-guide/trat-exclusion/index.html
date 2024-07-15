@@ -86,6 +86,66 @@
       <div class="container mt-4 mb-4 pb-2">
   <section class="row">
       
+          
+
+<div class="col col-11 breadcrumb" aria-label="breadcrumbs">
+  <ul class="mb-0 pt-2" style="vertical-align: middle">
+    
+
+  
+
+  
+
+  
+
+
+
+<li >
+  / <a href="/">
+    Home
+  </a>
+</li>
+
+
+
+
+<li >
+  / <a href="/docs/">
+    Introduction to Tratteria
+  </a>
+</li>
+
+
+
+
+<li >
+  / <a href="/docs/configuration-guide/">
+    Configuration Guide
+  </a>
+</li>
+
+
+
+
+<li  class="is-active">
+  / <a href="/docs/configuration-guide/trat-exclusion/">
+    TraTExclusion
+  </a>
+</li>
+
+  </ul>
+</div>
+
+          <div>
+    
+    
+    
+    <a href="https://github.com/tratteria/website/blob/main/content/docs/configuration-guide/trat-exclusion.md" class="btn btn-primary" target="_blank">
+      <i class="fas fa-pen"></i>
+    </a>
+</div>
+
+      
   </section>
 </section>
 </div>
@@ -93,7 +153,7 @@
     </div>
   </header>
   <div class="container">
-      <section class="row">
+      <section class="row">        
         <section class="col">
            
  
@@ -136,17 +196,21 @@
         <li><a  href="/docs/configuration-guide/">Configuration Guide</a>
           <ul>
             
-          </ul>
-        </li>
-    
-        <li><a  href="/docs/txn-token-format/">TraT Format</a>
-          <ul>
+            <li>
+                <a  href="/docs/configuration-guide/trat/">TraT</a>
+            </li>
             
-          </ul>
-        </li>
-    
-        <li><a  href="/docs/access-evaluation/">Access Evaluation</a>
-          <ul>
+            <li>
+                <a  href="/docs/configuration-guide/trat-exclusion/">TraTExclusion</a>
+            </li>
+            
+            <li>
+                <a  href="/docs/configuration-guide/tratteria-config/">TratteriaConfig</a>
+            </li>
+            
+            <li>
+                <a  href="/docs/configuration-guide/example-application-configs/">Example Application Configurations</a>
+            </li>
             
           </ul>
         </li>
@@ -162,9 +226,24 @@
 
         </section>
         <section class="col col-8">
-          <h1 class="title">TraT Format</h1>
+          <h1 class="title">TraTExclusion</h1>
           <p class="subtitle"></p>
           
+<div class="content">
+  <p>The TraTExclusion resource is used to specify endpoints of a service that do not require TraTs. This is particularly useful for non-functional APIs, such as health checks and monitoring, or for functional APIs that have not yet been adapted to support TraTs. The configuration is specific to each service.</p>
+<p>Below is an example of TraTExclusion for the order service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraTExclusion</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order-trat-exclusion</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">service</span>: <span style="color:#ae81ff">order</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoints</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/health&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
+</span></span></code></pre></div>
+</div>
+
 
         </section>
         <section class="col d-none d-lg-block">
@@ -179,6 +258,7 @@
 
 
         </section>
+
       </section>
     </div>
 

@@ -136,17 +136,21 @@
         <li><a  href="/docs/configuration-guide/">Configuration Guide</a>
           <ul>
             
-          </ul>
-        </li>
-    
-        <li><a  href="/docs/txn-token-format/">TraT Format</a>
-          <ul>
+            <li>
+                <a  href="/docs/configuration-guide/trat/">TraT</a>
+            </li>
             
-          </ul>
-        </li>
-    
-        <li><a  href="/docs/access-evaluation/">Access Evaluation</a>
-          <ul>
+            <li>
+                <a  href="/docs/configuration-guide/trat-exclusion/">TraTExclusion</a>
+            </li>
+            
+            <li>
+                <a  href="/docs/configuration-guide/tratteria-config/">TratteriaConfig</a>
+            </li>
+            
+            <li>
+                <a  href="/docs/configuration-guide/example-application-configs/">Example Application Configurations</a>
+            </li>
             
           </ul>
         </li>
@@ -165,6 +169,33 @@
           <h1 class="title">Configuration Guide</h1>
           <p class="subtitle"></p>
           
+<div class="content">
+  <p>Tratteria supports the configuration of TraTs generation and verification for APIs through Kubernetes resources. This document outlines the resources available and provides examples of how to use them in an application.</p>
+<h1 id="resource-types">
+  Resource Types
+  <a href="#resource-types">
+    <span class="icon hashlink">
+      <i class="fas fa-link"></i>
+    </span>
+  </a>
+</h1>
+<p>Tratteria utilizes three types of Kubernetes resources to manage TraTs generation and verification:</p>
+<ol>
+<li>
+<p><a href="/docs/configuration-guide/trat">TraT</a> - Defines the generation and verification of the TraT for an external API.</p>
+</li>
+<li>
+<p><a href="/docs/configuration-guide/trat-exclusion">TraTExclusion</a> - Specifies service endpoints that do not require TraTs verification.</p>
+</li>
+<li>
+<p><a href="/docs/configuration-guide/tratteria-config">TratteriaConfig</a> - Sets general configurations that apply to all APIs and TraTs.</p>
+</li>
+</ol>
+<br>
+<p>For practical application and additional context, please refer to <a href="/docs/configuration-guide/example-application-configs">example application configs</a> which details how the <a href="https://github.com/tratteria/example-application" target="_blank" rel="noopener">example application</a> defines these resources for TraTs generation and verification.</p>
+
+</div>
+
 
         </section>
         <section class="col d-none d-lg-block">
