@@ -110,7 +110,7 @@ footer a {
   <img src="/img/logos/image-logo.svg" alt="Tratteria Logo">
   <h1>Tratteria</h1>
   <h2>Transaction Tokens Service</h2>
-  <h3>Assure identity and context in microservices with <a href="https://www.ietf.org/archive/id/draft-ietf-oauth-transaction-tokens-01.html" target="_blank">Transaction Tokens</a>.</h3>
+  <h3>Assure identity and context in microservices with <a href="https://tratteria.io/docs/transaction-token/" target="_blank">Transaction Tokens</a>.</h3>
   <div class="buttons">
     <a href="/docs" class="button"><i class="fas fa-book-open"></i> Learn More</a>
     <a href="/docs/installation" class="button"><i class="fas fa-rocket"></i> Get Started</a>
