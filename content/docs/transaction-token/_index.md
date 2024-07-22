@@ -1,6 +1,6 @@
 ---
 title: "Transaction Tokens (TraTs)"
-weight: 7
+weight: 6
 toc: true
 ---
 
