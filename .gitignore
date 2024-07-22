@@ -8,3 +8,4 @@ package-lock.json
 
 # ignore system files
 .DS_Store
+.vscode/

@@ -12,7 +12,12 @@ weight: 1
 }
 </style>
 
-Welcome to the documentation for Tratteria, an open-source [Transaction Tokens (TraTs)](/docs/transaction-token) Service. Tratteria is designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.
+Welcome to the documentation for Tratteria, an open-source Transaction Tokens (TraTs) Service. TraTs are short-lived JWTs that assure identity and context in a microservices call chain. Learn more about TraTs [here](/docs/transaction-token). The example below describes the salient features of a TraT:
+
+<img src="/img/docs/introduction/what_is_a_trat.jpg" alt="What Is a TraT" class="doc-image">
+
+
+Tratteria is designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.
 
 <img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
 
