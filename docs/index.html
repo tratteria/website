@@ -177,7 +177,9 @@
     padding: 0;
 }
 </style>
-<p>Welcome to the documentation for Tratteria, an open-source <a href="/docs/transaction-token">Transaction Tokens (TraTs)</a> Service. Tratteria is designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.</p>
+<p>Welcome to the documentation for Tratteria, an open-source Transaction Tokens (TraTs) Service. TraTs are short-lived JWTs that assure identity and context in a microservices call chain. Learn more about TraTs <a href="/docs/transaction-token">here</a>. The example below describes the salient features of a TraT:</p>
+<img src="/img/docs/introduction/what_is_a_trat.jpg" alt="What Is a TraT" class="doc-image">
+<p>Tratteria is designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.</p>
 <img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
 <br>
 <p>Tratteria supports TraTs generation and verification using Kubernetes resources and Tratteria sidecar agents. Tratteria lets you define how to generate the TraT for an external API and how to verify the TraT for the resulting internal requests of the external API. Additionally, Tratteria supports access evaluation for external APIs.</p>
