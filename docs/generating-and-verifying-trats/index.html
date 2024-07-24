@@ -318,7 +318,27 @@
     </span>
   </a>
 </h2>
-<p>TraTs are verified using <a href="https://github.com/tratteria/tratteria-agent" target="_blank" rel="noopener">Tratteria agents</a>, which are sidecar containers that run alongside microservice containers. For details on how to verify TraTs using Tratteria agents, visit <a href="https://github.com/tratteria/tratteria-agent" target="_blank" rel="noopener">Tratteria agents readme</a>.</p>
+<p>TraTs are verified using <a href="https://github.com/tratteria/tratteria-agent" target="_blank" rel="noopener">Tratteria agents</a>, which are sidecar containers that run alongside microservice containers.</p>
+<p>Tratteria offers two methods to verify TraTs: <a href="https://github.com/tratteria/tratteria-agent?tab=readme-ov-file#interception-mode" target="_blank" rel="noopener">Interception</a> and <a href="https://github.com/tratteria/tratteria-agent?tab=readme-ov-file#delegation-mode" target="_blank" rel="noopener">Delegation</a>.</p>
+<h4 id="interception-mode">
+  Interception Mode:
+  <a href="#interception-mode">
+    <span class="icon hashlink">
+      <i class="fas fa-link"></i>
+    </span>
+  </a>
+</h4>
+<p>In this mode, incoming requests are intercepted by the Tratteria agent, which verifies the TraTs and forwards the trat-verified requests to the microservice.</p>
+<h4 id="delegation-mode">
+  Delegation Mode:
+  <a href="#delegation-mode">
+    <span class="icon hashlink">
+      <i class="fas fa-link"></i>
+    </span>
+  </a>
+</h4>
+<p>In Delegation Mode, requests are not intercepted; instead, Tratteria agents&rsquo; trat-verification API must be called with request data to verify TraTs. This mode is suitable for environments where intercepting requests is not possible or desired, for example, in environments with a service mesh that is already intercepting incoming requests.</p>
+<p>For details on how to verify TraTs using Tratteria agents, visit <a href="https://github.com/tratteria/tratteria-agent" target="_blank" rel="noopener">Tratteria agents readme</a>.</p>
 <p> </p>
 
 </div>
@@ -339,7 +359,11 @@
         <li></li>
       </ul>
     </li>
-    <li><a href="#verifying-trats">Verifying TraTs</a></li>
+    <li><a href="#verifying-trats">Verifying TraTs</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
