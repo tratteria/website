@@ -168,6 +168,18 @@ For details on TraT claims check out [TraTs draft](https://datatracker.ietf.org/
 
 ## Verifying TraTs
 
-TraTs are verified using [Tratteria agents](https://github.com/tratteria/tratteria-agent), which are sidecar containers that run alongside microservice containers. For details on how to verify TraTs using Tratteria agents, visit [Tratteria agents readme](https://github.com/tratteria/tratteria-agent).
+TraTs are verified using [Tratteria agents](https://github.com/tratteria/tratteria-agent), which are sidecar containers that run alongside microservice containers.
+
+Tratteria offers two methods to verify TraTs: [Interception](https://github.com/tratteria/tratteria-agent?tab=readme-ov-file#interception-mode) and [Delegation](https://github.com/tratteria/tratteria-agent?tab=readme-ov-file#delegation-mode).
+
+#### Interception Mode:
+
+In this mode, incoming requests are intercepted by the Tratteria agent, which verifies the TraTs and forwards the trat-verified requests to the microservice.
+
+#### Delegation Mode:
+
+In Delegation Mode, requests are not intercepted; instead, Tratteria agents' trat-verification API must be called with request data to verify TraTs. This mode is suitable for environments where intercepting requests is not possible or desired, for example, in environments with a service mesh that is already intercepting incoming requests.
+
+For details on how to verify TraTs using Tratteria agents, visit [Tratteria agents readme](https://github.com/tratteria/tratteria-agent).
 
 &nbsp;
