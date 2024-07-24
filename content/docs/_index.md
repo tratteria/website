@@ -167,3 +167,7 @@ To integrate Tratteria into your microservice application, start by [installing 
 ## Acknowledgments
 
 This documentation and the underlying technology are based on the concepts and [draft](https://datatracker.ietf.org/doc/draft-ietf-oauth-transaction-tokens/) developed by Atul Tulshibagwale (SGNL), George Fletcher (Capital One), and Pieter Kasselman (Microsoft).
+
+## Contact Us
+
+For inquiries about Tratteria, please email us at: [tratteria@sgnl.ai](mailto:tratteria@sgnl.ai)
