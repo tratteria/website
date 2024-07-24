@@ -42,6 +42,10 @@ params:
       color: '#000000'
       url: 'https://github.com/tratteria'
       icon: fab fa-github
+    - name: Email
+      color: '#555555'
+      url: 'mailto:tratteria@sgnl.ai'
+      icon: fas fa-paper-plane
   fonts:
     - name: Roboto
       sizes:
