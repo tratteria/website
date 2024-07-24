@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 The above specifies how to generate purpose and authorization details for the `POST api/order/trade/{#stockId}` API, and it specifies who (the `order`, `catalog`, and `stocks` services) and how to verify the generated TraT. Additionally, the `accessEvaluation` section specifies how to perform access evaluations for the API.
 
-To integrate Tratteria into your microservice application, start by [installing Tratteria](/docs/installation).
+To integrate Tratteria into your microservice application, start by [installing Tratteria](/docs/installation), which can be deployed in environments with or without a service mesh.
 
 ## Acknowledgments
 

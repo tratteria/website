@@ -109,7 +109,7 @@ Events:
 
 ## Observing TraTs in Action
 
-To see TraTs in action, you can use the application UI, which interactively shows the generated TraTs for each invoked external API.
+To see TraTs in action, lunch the example application frontend, which interactively shows the generated TraTs for each invoked external API.
 
 1. Launch the frontend client application as per the example application [README](https://github.com/tratteria/example-application/blob/main/README.md).
 
