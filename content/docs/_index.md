@@ -38,6 +38,8 @@ Tratteria can operate in two modes:
 
 * **The Delegation Mode**: In this approach, the application explicitly calls the Tratteria Agent within its Kubernetes pod to verify TraTs. As a result, the application needs to make this change to its code to use Tratteria. This approach is more secure, because it does not suffer from the [sidecar bypass attack](https://github.com/istio/istio/discussions/48994) that Kubernetes sidecars in general suffer from. In addition, a delegation based approach allows the application to pack the call parameter information in the Txn-Token header, and can potentially eliminate having to send it separately through query parameters or the body.
 
+  This mode is suitable for environments where intercepting incoming requests is not possible or desired, for example, in environments with a service mesh that is already intercepting incoming requests.
+
 ## Tratteria Resource
 
 Tratteria lets you define how to generate the TraT for an external API and how to verify the TraT for the resulting internal requests of the external API using Kubernetes resources. Additionally, it supports specifying access evaluation for external APIs.
