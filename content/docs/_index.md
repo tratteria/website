@@ -12,27 +12,35 @@ weight: 1
 }
 </style>
 
-Welcome to the documentation for Tratteria, an open-source Transaction Tokens (TraTs) Service. TraTs are short-lived JWTs that assure identity and context in a microservices call chain. Learn more about TraTs [here](/docs/transaction-token). The example below describes the salient features of a TraT:
+Welcome to the documentation for Tratteria, an open-source Transaction Tokens (TraTs) Service. This guide will help you understand what Tratteria is, how it works, and how to implement it in your microservices architecture.
+
+## TraT
+
+TraTs (Transaction Tokens) are short-lived JWTs that assure identity and context in a microservices call chain. Learn more about TraTs [here](/docs/transaction-token). The example below describes the salient features of a TraT:
 
 <img src="/img/docs/introduction/what_is_a_trat.jpg" alt="What Is a TraT" class="doc-image">
 
-## Tratteria approach
-Tratteria provides two ways of verifying TraTs: An interception option and a delegation option
-* **The interception option**: Enables existing applications to adopt TraTs without (almost) any code changes. It injects Tratteria sidecar containers into each Kubernetes pod, and the application continues to operate the way it used to, except the path, query and body of each call are verified against an associated TraT.
+## Tratteria Architecture
 
-  If a service needs to forward a TraT to a downstream service, then it needs to add the `Txn-token` HTTP header and include the TraT as the value of that header in outbound calls. If a microservice does not make any downstream calls, then it does not need to change.
-
-* **The delegation approach**: In this approach, the application explicitly calls the Tratteria agent within its Kubernetes pod to verify TraTs. As a result, the application needs to make this change to its code to use Tratteria. This approach is more secure, because it does not suffer from the [sidecar bypass attack](https://github.com/istio/istio/discussions/48994) that Kubernetes sidecars in general suffer from. In addition, a delegation based approach allows the application to pack the call parameter information in the Txn-Token header, and can potentially eliminate having to send it separately through query parameters or the body.
-
-## Tratteria architecture
-
-Tratteria is designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.
+Tratteria is designed to facilitate secure and convenient TraT issuance and verification in microservices systems. It involves the Tratteria Service for issuing TraTs, the Tratteria Agent sidecar for verifying TraTs, and Tratteria Kubernetes resources for specifying generation and verification rules for TraTs.
 
 <img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
 
 <br>
 
-Tratteria supports TraTs generation and verification using Kubernetes resources and Tratteria sidecar agents. Tratteria lets you define how to generate the TraT for an external API and how to verify the TraT for the resulting internal requests of the external API. Additionally, Tratteria supports access evaluation for external APIs.
+## Tratteria Modes
+
+Tratteria can operate in two modes:
+
+* **The Interception Mode**: Enables existing applications to adopt TraTs without (almost) any code changes. It injects Tratteria Agent sidecar containers into Kubernetes pods, and the application continues to operate the way it used to, except the path, query and body of each call are verified against an associated TraT.
+
+  If a service needs to forward a TraT to a downstream service, then it needs to add the `Txn-token` HTTP header and include the TraT as the value of that header in outbound calls. If a microservice does not make any downstream calls, then it does not need to change.
+
+* **The Delegation Mode**: In this approach, the application explicitly calls the Tratteria Agent within its Kubernetes pod to verify TraTs. As a result, the application needs to make this change to its code to use Tratteria. This approach is more secure, because it does not suffer from the [sidecar bypass attack](https://github.com/istio/istio/discussions/48994) that Kubernetes sidecars in general suffer from. In addition, a delegation based approach allows the application to pack the call parameter information in the Txn-Token header, and can potentially eliminate having to send it separately through query parameters or the body.
+
+## Tratteria Resource
+
+Tratteria lets you define how to generate the TraT for an external API and how to verify the TraT for the resulting internal requests of the external API using Kubernetes resources. Additionally, it supports specifying access evaluation for external APIs.
 
 Below is a sample Tratteria Kubernetes resource for the `POST api/order/trade/{#stockId}` external API. Hover your mouse over the text below to find out more about what each line means:
 
@@ -121,7 +129,7 @@ pre {
       <span class="tooltip"><span class="yaml-key">azdMapping</span>:
         <span class="yaml-key">stockId</span>:
           <span class="yaml-key">required</span>: <span class="yaml-value">true</span><span class="tooltiptext">As noted above, the stocks service overrides defaults for TraT verification</span></span>
-          <span class="yaml-key">value</span>: <span class="yaml-string">"{$id}"</span><span class="tooltiptext">List of services that use this TraT type. They may use defaults specified above or override them.</span></span>
+          <span class="yaml-key">value</span>: <span class="yaml-string">"{$id}"</span><span class="tooltiptext">The list of microservice APIs that are invoked while processing this external API. They may use defaults specified above or override them.</span></span>
   <span class="tooltip"><span class="yaml-key">accessEvaluation</span>:
     <span class="yaml-key">subject</span>:
       <span class="yaml-key">id</span>: <span class="yaml-string">"${subject_token.email}"</span>
