@@ -178,6 +178,6 @@ In this mode, incoming requests are intercepted by the Tratteria agent, which ve
 
 #### Delegation Mode:
 
-In Delegation Mode, requests are not intercepted; instead, Tratteria agents' trat-verification API must be called with request data to verify TraTs. This mode is suitable for environments where intercepting requests is not possible or desired, for example, in environments with a service mesh that is already intercepting incoming requests.
+In Delegation Mode, requests are not intercepted; instead, Tratteria agents' trat-verification API must be called with request data to verify TraTs. This mode is suitable for environments where intercepting incoming requests is not possible or desired, for example, in environments with a service mesh that is already intercepting incoming requests.
 
 For details on how to verify TraTs using Tratteria agents, visit [Tratteria agents readme](https://github.com/tratteria/tratteria-agent).
