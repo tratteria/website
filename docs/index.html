@@ -185,6 +185,32 @@
 </style>
 <p>Welcome to the documentation for Tratteria, an open-source Transaction Tokens (TraTs) Service. TraTs are short-lived JWTs that assure identity and context in a microservices call chain. Learn more about TraTs <a href="/docs/transaction-token">here</a>. The example below describes the salient features of a TraT:</p>
 <img src="/img/docs/introduction/what_is_a_trat.jpg" alt="What Is a TraT" class="doc-image">
+<h2 id="tratteria-approach">
+  Tratteria approach
+  <a href="#tratteria-approach">
+    <span class="icon hashlink">
+      <i class="fas fa-link"></i>
+    </span>
+  </a>
+</h2>
+<p>Tratteria provides two ways of verifying TraTs: An interception option and a delegation option</p>
+<ul>
+<li>
+<p><strong>The interception option</strong>: Enables existing applications to adopt TraTs without (almost) any code changes. It injects Tratteria sidecar containers into each Kubernetes pod, and the application continues to operate the way it used to, except the path, query and body of each call are verified against an associated TraT.</p>
+<p>If a service needs to forward a TraT to a downstream service, then it needs to add the <code>Txn-token</code> HTTP header and include the TraT as the value of that header in outbound calls. If a microservice does not make any downstream calls, then it does not need to change.</p>
+</li>
+<li>
+<p><strong>The delegation approach</strong>: In this approach, the application explicitly calls the Tratteria agent within its Kubernetes pod to verify TraTs. As a result, the application needs to make this change to its code to use Tratteria. This approach is more secure, because it does not suffer from the <a href="https://github.com/istio/istio/discussions/48994" target="_blank" rel="noopener">sidecar bypass attack</a> that Kubernetes sidecars in general suffer from. In addition, a delegation based approach allows the application to pack the call parameter information in the Txn-Token header, and can potentially eliminate having to send it separately through query parameters or the body.</p>
+</li>
+</ul>
+<h2 id="tratteria-architecture">
+  Tratteria architecture
+  <a href="#tratteria-architecture">
+    <span class="icon hashlink">
+      <i class="fas fa-link"></i>
+    </span>
+  </a>
+</h2>
 <p>Tratteria is designed to facilitate secure and convenient TraTs issuance and verification in microservices systems.</p>
 <img src="/img/docs/introduction/tratteria_workflow.svg" alt="Tratteria Workflow" class="doc-image">
 <br>
@@ -355,6 +381,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <p> On this page:</p>
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#tratteria-approach">Tratteria approach</a></li>
+    <li><a href="#tratteria-architecture">Tratteria architecture</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
     <li><a href="#contact-us">Contact Us</a></li>
   </ul>
