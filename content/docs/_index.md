@@ -36,7 +36,7 @@ Tratteria can operate in two modes:
 
   If a service needs to forward a TraT to a downstream service, then it needs to add the `Txn-token` HTTP header and include the TraT as the value of that header in outbound calls. If a microservice does not make any downstream calls, then it does not need to change.
 
-* **The Delegation Mode**: In this approach, the application explicitly calls the Tratteria Agent within its Kubernetes pod to verify TraTs. As a result, the application needs to make this change to its code to use Tratteria. This approach is more secure, because it does not suffer from the [sidecar bypass attack](https://github.com/istio/istio/discussions/48994) that Kubernetes sidecars in general suffer from. In addition, a delegation based approach allows the application to pack the call parameter information in the Txn-Token header, and can potentially eliminate having to send it separately through query parameters or the body.
+* **The Delegation Mode**: In this approach, the application explicitly calls the Tratteria Agent within its Kubernetes pod to verify TraTs. As a result, the application needs to make this change to its code to use Tratteria. This mode is more secure than the interception mode, as it avoids scenarios where sidecar could potentially be bypassed. In addition, a delegation based approach allows the application to pack the call parameter information in the Txn-Token header, and can potentially eliminate having to send it separately through query parameters or the body.
 
   This mode is suitable for environments where intercepting incoming requests is not possible or desired, for example, in environments with a service mesh that is already intercepting incoming requests.
 
@@ -180,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </html>
 
 The above specifies how to generate purpose and authorization details for the `POST api/order/trade/{#stockId}` API, and it specifies who (the `order`, `catalog`, and `stocks` services) and how to verify the generated TraT. Additionally, the `accessEvaluation` section specifies how to perform access evaluations for the API.
+
+To quickly see Tratteria in action, checkout the [Quickstart Guide](/docs/quickstart).
 
 To integrate Tratteria into your microservice application, start by [installing Tratteria](/docs/installation), which can be deployed in environments with or without a service mesh.
 
