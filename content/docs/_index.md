@@ -136,9 +136,9 @@ pre {
     <span class="yaml-key">subject</span>:
       <span class="yaml-key">id</span>: <span class="yaml-string">"${subject_token.email}"</span>
     <span class="yaml-key">action</span>:
-      <span class="yaml-key">name</span>: <span class="yaml-string">"${purp}"</span>
+      <span class="yaml-key">name</span>: <span class="yaml-string">"${body.orderType}"</span>
     <span class="yaml-key">resource</span>:
-      <span class="yaml-key">stockId</span>: <span class="yaml-string">"${request_details.body.stockId}"</span><span class="tooltiptext">Tratteria can call out to an AuthZEN API to evaluate whether execution should proceed. This specifies how to construct the request for access evaluation.</span></span></code>
+      <span class="yaml-key">stockId</span>: <span class="yaml-string">"${stockId}"</span><span class="tooltiptext">Tratteria can call out to an AuthZEN API to evaluate whether execution should proceed. This specifies how to construct the request for access evaluation.</span></span></code>
 </pre>
 
 <script>
