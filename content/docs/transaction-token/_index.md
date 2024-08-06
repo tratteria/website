@@ -5,6 +5,7 @@ toc: true
 ---
 
 ## Background
+Transaction Tokens (TraTs) are described in a draft specification from the IETF OAuth working group. See here: [Transaction Tokens](https://datatracker.ietf.org/doc/draft-ietf-oauth-transaction-tokens/). This document describes the background and need for Transaction Tokens.
 
 ### Microservices
 
@@ -39,7 +40,7 @@ To address these vulnerabilities, TraTs represent an evolution from traditional 
 
 ### Transaction Tokens (TraTs)
 
-TraTs are short-lived, cryptographically signed JSON Web Tokens that immutably preserve the user identity and authorization context of an external API invocation. They ensure that the user identity and authorization details of an external request, such as an API call, are maintained across all involved services within a microservices application. Additionally, TraTs enable these services to assert their involvement in the transaction chain to downstream workloads.
+TraTs are short-lived, cryptographically signed JSON Web Tokens (JWTs) that immutably preserve the user identity and authorization context of an external API invocation. They ensure that the user identity and authorization details of an external request, such as an API call, are maintained across all involved services within a microservices application. Additionally, TraTs enable these services to assert their involvement in the transaction chain to downstream workloads.
 
 ### Benefits of TraTs
 
