@@ -51,7 +51,7 @@ spec:
     subject:
       id: "${subject_token.email}"
     action:
-      name: "${purp}"
+      name: "${body.orderType}"
     resource:
       stockId: "${stockId}"
 ```
@@ -87,8 +87,9 @@ The above configuration specifies how to construct the TraT purpose and authoriz
 
 1. Request Body (referenced using `${body}`)
 2. Request Header (referenced using `${header}`)
-3. Variables defined in the API specification section (referenced using `${variable_name}`)
-4. Literal string constants
+3. Query Parameters (referenced using `${queryParameters}`)
+4. Variables defined in the API specification section (referenced using `${variable_name}`)
+5. Literal string constants
 
 The above generation rule produces a TraT as follows:
 
@@ -146,15 +147,15 @@ This section is optional. If access evaluation is enabled, then this section det
 
 ```yaml
 accessEvaluation:
-subject:
+  subject:
     id: "${subject_token.email}"
-action:
-    name: "${purp}"
-resource:
+  action:
+    name: "${body.orderType}"
+  resource:
     stockId: "${stockId}"
 ```
 
-This section supports referencing all default azdMapping references (`${body}`, `${header}`, and `${variable_name}`) as well as transaction-token request components (`grant_type`, `requested_token_type`, `audience`, `purpose`, `subject-token`, `subject-token-type`, `request-details`, and `request-context`).
+This section supports referencing all default azdMapping references (`${body}`, `${header}`, `${queryParameters}`, and `${variable_name}`) as well as transaction-token request components (`subject-token`, `request-details`, and `request-context`).
 
 The configuration above generates an access evaluation request body as follows:
 
