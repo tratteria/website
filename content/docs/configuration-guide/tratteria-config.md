@@ -122,7 +122,7 @@ This is an optional configuration. When configured, it requires the following:
         Specifies the token to be used with the authentication method. Currently, only `value` is supported. For security reasons, it is recommended to set this via an environment variable.
 
   - **requestMapping (Required)**  
-    Specifies how to construct the request body for the access-evaluation API using JSON path expressions and YAML fields. The configuration allows for the construction of arbitrary JSONs using TraTs request components: `subject_token`, `scope`, `request_details`, and `request_context`. If a particular JSON path does not exist for a request, the field is omitted.
+    Specifies how to construct the request body for the access-evaluation API using JSON path expressions and YAML fields. The configuration allows for the construction of arbitrary JSONs using TraTs request components: `subject_token`, `purp`, `request_details`, and `request_context`. If a particular JSON path does not exist for a request, the field is omitted.
 
 
 ##### tokenGenerationAuthorizedServiceIds (Required)

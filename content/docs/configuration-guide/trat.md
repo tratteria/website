@@ -51,7 +51,7 @@ spec:
     subject:
       id: "${subject_token.email}"
     action:
-      name: "${scope}"
+      name: "${purp}"
     resource:
       stockId: "${stockId}"
 ```
@@ -149,7 +149,7 @@ accessEvaluation:
 subject:
     id: "${subject_token.email}"
 action:
-    name: "${scope}"
+    name: "${purp}"
 resource:
     stockId: "${stockId}"
 ```
