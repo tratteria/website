@@ -223,14 +223,14 @@
 <p>Should be set to <code>urn:ietf:params:oauth:token-type:self_signed</code> for self-signed JWT tokens and to <code>urn:ietf:params:oauth:token-type:id_token</code> for OIDC ID tokens.</p>
 <p><strong>request_details</strong></p>
 <p>Includes data about the request. It should contain the following:</p>
-<p><em>endpoint</em>: The request URL path.</p>
+<p><em>path</em>: The request URL path.</p>
 <p><em>method</em>: The HTTP method of the request (e.g., <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>).</p>
 <p><em>body</em>: The payload of the HTTP request in the JSON format.</p>
 <p><em>headers</em>: The HTTP headers of the request as a JSON object.</p>
 <p><em>queryParameters</em>: URL query parameters of the request as a JSON object.</p>
 <p>Below is an example <code>request_details</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;endpoint&#34;</span>: <span style="color:#e6db74">&#34;/order&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/order&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;POST&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;body&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;stock&#34;</span>: <span style="color:#e6db74">&#34;NASDAQ:MSFT&#34;</span>,

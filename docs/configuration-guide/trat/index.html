@@ -242,10 +242,10 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraT</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order-trade-trat</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order-trade-api-trat</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;order/trade/{#stockId}?action={#action}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;order/trade/{#stockId}?action={#action}&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;POST&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">purp</span>: <span style="color:#ae81ff">trade</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">azdMapping</span>:
@@ -261,16 +261,16 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order</span>
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">catalog</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;catalog/catalog-update/{#stockId}?update-type={#action}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;catalog/catalog-update/{#stockId}?update-type={#action}&#34;</span>
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;stocks/?id={#id}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;stocks/?id={#id}&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">azdMapping</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">stockId</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;{$id}&#34;</span>
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">payment</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;payment/trade?numbers={#numbers}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;payment/trade?numbers={#numbers}&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">azdMapping</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">quantity</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
@@ -291,9 +291,9 @@
     </span>
   </a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;order/trade/{#stockId}?action={#action}&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;order/trade/{#stockId}?action={#action}&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;POST&#34;</span>
-</span></span></code></pre></div><p>The above configuration specifies the external API for which the <code>order-trade-trat</code> is defined. The endpoint supports the definition of variables that can be referenced later. A variable is defined by placing a name prefixed with a <code>#</code> inside the curly braces. In this endpoint, the <code>stockId</code> path parameter and <code>action</code> query parameter are defined.</p>
+</span></span></code></pre></div><p>The above configuration specifies the external API for which the <code>order-trade-api-trat</code> is defined. The path supports the definition of variables that can be referenced later. A variable is defined by placing a name prefixed with a <code>#</code> inside the curly braces. In the above path, the <code>stockId</code> path parameter and <code>action</code> query parameter are defined.</p>
 <h4 id="trat-generation-section">
   TraT Generation Section
   <a href="#trat-generation-section">
@@ -342,23 +342,23 @@
 </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order</span>
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">catalog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;catalog/catalog-update/{#stockId}?update-type={#action}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;catalog/catalog-update/{#stockId}?update-type={#action}&#34;</span>
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;stocks/?id={#id}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;stocks/?id={#id}&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">azdMapping</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">stockId</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;{$id}&#34;</span>
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">payment</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;payment/trade?numbers={#numbers}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;payment/trade?numbers={#numbers}&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">azdMapping</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">quantity</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;{$numbers}&#34;</span>
-</span></span></code></pre></div><p>The above section lists the services and their APIs that are invoked while processing the <code>POST order/trade/{#stockId}?action={#action}</code> external API. For each service, the default <code>endpoint</code>, <code>method</code>, and <code>azdMapping</code> may be used or each field can be overridden with different values.</p>
+</span></span></code></pre></div><p>The above section lists the services and their APIs that are invoked while processing the <code>POST order/trade/{#stockId}?action={#action}</code> external API. For each service, the default <code>path</code>, <code>method</code>, and <code>azdMapping</code> may be used or each field can be overridden with different values.</p>
 <p>In the above, the <code>order</code>, <code>catalog</code>, <code>stocks</code>, and <code>payment</code> services&rsquo; endpoints are invoked when processing the external trade request.</p>
-<p><strong>Order service</strong>: All <code>endpoint</code>, <code>method</code>, and <code>azdMapping</code> are inherited from the original definition.</p>
+<p><strong>Order service</strong>: All <code>path</code>, <code>method</code>, and <code>azdMapping</code> are inherited from the original definition.</p>
 <p><strong>Catalog service</strong>: <code>azdMapping</code> is inherited from the original definition.</p>
 <p><strong>Stocks service</strong>: None is inherited.</p>
 <p><strong>Payment service</strong>: None is inherited.</p>

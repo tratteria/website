@@ -23,7 +23,7 @@ The external API specification section specifies the external API for which the 
       <guid>https://tratteria.io/docs/configuration-guide/trat-exclusion/</guid>
       <description>The TraTExclusion resource is used to specify endpoints of a service that do not require TraTs. This is particularly useful for non-functional APIs, such as health checks and monitoring, or for functional APIs that have not yet been adapted to support TraTs. The configuration is specific to each service.
 Below is an example of TraTExclusion for the order service:
-apiVersion: tratteria.io/v1alpha1 kind: TraTExclusion metadata: name: order-trat-exclusion service: order spec: endpoints: - path: &amp;#34;/health&amp;#34; method: &amp;#34;GET&amp;#34; </description>
+apiVersion: tratteria.io/v1alpha1 kind: TraTExclusion metadata: name: order-service-tratexcl namespace: alpha-stocks-dev spec: service: order endpoints: - path: &amp;#34;/health&amp;#34; method: &amp;#34;GET&amp;#34; </description>
     </item>
     
     <item>
@@ -44,10 +44,10 @@ apiVersion: tratteria.io/v1alpha1 kind: TratteriaConfig metadata: name: alpha-st
       
       <guid>https://tratteria.io/docs/configuration-guide/example-application-configs/</guid>
       <description>Below are the Tratteria Kubernetes resources for the Tratteria example application. These examples can serve as references when writing the resources for your microservices application.
-TraTs The Tratteria example application has five external APIs; consequently, there are five TraT resources.
-stock-details-api.yaml:
-apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-details-api-trat namespace: alpha-stocks-dev spec: endpoint: &amp;#34;/api/stocks/details/{#stockId}&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-details azdMapping: stockId: required: true value: &amp;#34;${stockId}&amp;#34; services: - name: stocks stock-holdings-api.yaml:
-apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-holdings-api-trat namespace: alpha-stocks-dev spec: endpoint: &amp;#34;/api/stocks/holdings&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-holdings services: - name: stocks stock-search-api.</description>
+TraTs The Tratteria example application has four external APIs; consequently, there are four TraT resources.
+stock-details-api-trat.yaml:
+apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-details-api-trat namespace: alpha-stocks-dev spec: path: &amp;#34;/api/stocks/details/{#stockId}&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-details azdMapping: stockId: required: true value: &amp;#34;${stockId}&amp;#34; services: - name: stocks stock-holdings-api-trat.yaml:
+apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-holdings-api-trat namespace: alpha-stocks-dev spec: path: &amp;#34;/api/stocks/holdings&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-holdings services: - name: stocks stock-search-api-trat.</description>
     </item>
     
   </channel>

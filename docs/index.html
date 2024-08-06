@@ -296,8 +296,8 @@ pre {
   <span class="tooltip"><span class="yaml-key">name</span>: <span class="yaml-value">trade-api-trat</span><span class="tooltiptext">The name of the TraT used for this external API. This uniquely identifies the TraT type within the Tratteria system.</span></span>
   <span class="yaml-key">namespace</span>: <span class="yaml-value">app-dev</span>
 <span class="yaml-key">spec</span>:
-  <span class="tooltip"><span class="yaml-key">endpoint</span>: <span class="yaml-value">"api/order/trade/{#stockId}?action={#action}"</span><span class="tooltiptext">The default URL path, which, together with the method field below, results in this type of TraT being generated or validated. The URL may used by external API services or internal microservices.</span></span>
-  <span class="tooltip"><span class="yaml-key">method</span>: <span class="yaml-value">"POST"</span><span class="tooltiptext">The HTTP method for which this TraT resource is defined (see `endpoint` above).</span></span>
+  <span class="tooltip"><span class="yaml-key">path</span>: <span class="yaml-value">"api/order/trade/{#stockId}?action={#action}"</span><span class="tooltiptext">The default URL path, which, together with the method field below, results in this type of TraT being generated or validated. The URL may used by external API services or internal microservices.</span></span>
+  <span class="tooltip"><span class="yaml-key">method</span>: <span class="yaml-value">"POST"</span><span class="tooltiptext">The HTTP method for which this TraT resource is defined (see `path` above).</span></span>
   <span class="tooltip"><span class="yaml-key">purp</span>: <span class="yaml-value">"stock-trade"</span><span class="tooltiptext">The purpose of the TraT, which is included in the `purp` field of TraTs of this type.</span></span>
   <span class="tooltip"><span class="yaml-key">azdMapping</span>:
     <span class="yaml-key">stockId</span>:
@@ -312,9 +312,9 @@ pre {
   <span class="tooltip"><span class="yaml-key">services</span>:
     - <span class="yaml-key">name</span>: <span class="yaml-value">order</span>
     - <span class="yaml-key">name</span>: <span class="yaml-value">catalog</span>
-      <span class="tooltip"><span class="yaml-key">endpoint</span>: <span class="yaml-string">"catalog/catalog-update/{#stockId}?update-type={#action}"</span><span class="tooltiptext">The catalog service overrides just the endpoint.</span></span>
+      <span class="tooltip"><span class="yaml-key">path</span>: <span class="yaml-string">"catalog/catalog-update/{#stockId}?update-type={#action}"</span><span class="tooltiptext">The catalog service overrides just the path.</span></span>
     - <span class="yaml-key">name</span>: <span class="yaml-value">stocks</span>
-      <span class="tooltip"><span class="yaml-key">endpoint</span>: <span class="yaml-string">"stocks/{#id}"</span><span class="tooltiptext">The stocks service overrides the endpoint, method and how it receives information that needs to be verified against the TraT content.</span></span>
+      <span class="tooltip"><span class="yaml-key">path</span>: <span class="yaml-string">"stocks/{#id}"</span><span class="tooltiptext">The stocks service overrides the path, method and how it receives information that needs to be verified against the TraT content.</span></span>
       <span class="tooltip"><span class="yaml-key">method</span>: <span class="yaml-string">"GET"</span><span class="tooltiptext">As noted above, the stocks service overrides defaults for the HTTP method.</span></span>
       <span class="tooltip"><span class="yaml-key">azdMapping</span>:
         <span class="yaml-key">stockId</span>:

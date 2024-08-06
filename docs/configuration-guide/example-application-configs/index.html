@@ -245,15 +245,15 @@
     </span>
   </a>
 </h3>
-<p>The Tratteria example application has five external APIs; consequently, there are five TraT resources.</p>
-<p><code>stock-details-api.yaml:</code></p>
+<p>The Tratteria example application has four external APIs; consequently, there are four TraT resources.</p>
+<p><code>stock-details-api-trat.yaml:</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraT</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stock-details-api-trat</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;/api/stocks/details/{#stockId}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/api/stocks/details/{#stockId}&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">purp</span>: <span style="color:#ae81ff">stock-details</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">azdMapping</span>:
@@ -262,26 +262,26 @@
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;${stockId}&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks</span>
-</span></span></code></pre></div><p><code>stock-holdings-api.yaml:</code></p>
+</span></span></code></pre></div><p><code>stock-holdings-api-trat.yaml:</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraT</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stock-holdings-api-trat</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;/api/stocks/holdings&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/api/stocks/holdings&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">purp</span>: <span style="color:#ae81ff">stock-holdings</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks</span>
-</span></span></code></pre></div><p><code>stock-search-api.yaml:</code></p>
+</span></span></code></pre></div><p><code>stock-search-api-trat.yaml:</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraT</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stock-search-api-trat</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;/api/stocks/search&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/api/stocks/search&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">purp</span>: <span style="color:#ae81ff">stock-search</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">azdMapping</span>:
@@ -290,14 +290,14 @@
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;${queryParameters.query}&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks</span>
-</span></span></code></pre></div><p><code>stock-trade-api.yaml:</code></p>
+</span></span></code></pre></div><p><code>stock-trade-api-trat.yaml:</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraT</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stock-trade-api-trat</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;/api/order&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/api/order&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;POST&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">purp</span>: <span style="color:#ae81ff">stock-trade</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">azdMapping</span>:
@@ -313,23 +313,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order</span>
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;/internal/stocks&#34;</span>
-</span></span></code></pre></div><p><code>trade-details-api.yaml:</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraT</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">trade-details-api-trat</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;/api/order/{#transactionNumber}&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">purp</span>: <span style="color:#ae81ff">stock-details</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">azdMapping</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">transactionNumber</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;${transactionNumber}&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/internal/stocks&#34;</span>
 </span></span></code></pre></div><h2 id="tratexclusion">
   TraTExclusion
   <a href="#tratexclusion">
@@ -339,23 +323,25 @@
   </a>
 </h2>
 <p>There are two services, the stocks and order service, that verify TraTs in the example application; consequently, there are two TraTExclusion resources.</p>
-<p><code>order-trat-exclusion.yaml:</code></p>
+<p><code>order-service-tratexcl.yaml</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraTExclusion</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order-trat-exclusion</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">service</span>: <span style="color:#ae81ff">order</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order-service-tratexcl</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">service</span>: <span style="color:#ae81ff">order</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoints</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/health&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
-</span></span></code></pre></div><p><code>stocks-trat-exclusion.yaml:</code></p>
+</span></span></code></pre></div><p><code>stocks-service-tratexcl.yaml:</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraTExclusion</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks-trat-exclusion</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">service</span>: <span style="color:#ae81ff">stocks</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stocks-service-tratexcl</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">service</span>: <span style="color:#ae81ff">stocks</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoints</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/health&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>

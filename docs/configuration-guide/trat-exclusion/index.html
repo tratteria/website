@@ -241,9 +241,10 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">tratteria.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TraTExclusion</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order-trat-exclusion</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">service</span>: <span style="color:#ae81ff">order</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order-service-tratexcl</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alpha-stocks-dev</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">service</span>: <span style="color:#ae81ff">order</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoints</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/health&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
