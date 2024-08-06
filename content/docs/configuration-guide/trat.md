@@ -14,10 +14,10 @@ Let's delve into the details of TraTs by examining an example.
 apiVersion: tratteria.io/v1alpha1
 kind: TraT
 metadata:
-  name: order-trade-trat
+  name: order-trade-api-trat
   namespace: alpha-stocks-dev
 spec:
-  endpoint: "order/trade/{#stockId}?action={#action}"
+  path: "order/trade/{#stockId}?action={#action}"
   method: "POST"
   purp: trade
   azdMapping:
@@ -33,16 +33,16 @@ spec:
   services:
     - name: order
     - name: catalog
-      endpoint: "catalog/catalog-update/{#stockId}?update-type={#action}"
+      path: "catalog/catalog-update/{#stockId}?update-type={#action}"
     - name: stocks
-      endpoint: "stocks/?id={#id}"
+      path: "stocks/?id={#id}"
       method: "GET"
       azdMapping:
         stockId:
           required: true
           value: "{$id}"
     - name: payment
-      endpoint: "payment/trade?numbers={#numbers}"
+      path: "payment/trade?numbers={#numbers}"
       azdMapping:
         quantity:
           required: true
@@ -61,11 +61,11 @@ Below are the four sections of the above TraT:
 #### External API Specification Section
 
 ```yaml
-endpoint: "order/trade/{#stockId}?action={#action}"
+path: "order/trade/{#stockId}?action={#action}"
 method: "POST"
 ```
 
-The above configuration specifies the external API for which the `order-trade-trat` is defined. The endpoint supports the definition of variables that can be referenced later. A variable is defined by placing a name prefixed with a `#` inside the curly braces. In this endpoint, the `stockId` path parameter and `action` query parameter are defined.
+The above configuration specifies the external API for which the `order-trade-api-trat` is defined. The path supports the definition of variables that can be referenced later. A variable is defined by placing a name prefixed with a `#` inside the curly braces. In the above path, the `stockId` path parameter and `action` query parameter are defined.
 
 #### TraT Generation Section
 
@@ -112,27 +112,27 @@ The `required` field in the `azdMapping` is used for TraT verification. If requi
 ```yaml
 - name: order
 - name: catalog
-    endpoint: "catalog/catalog-update/{#stockId}?update-type={#action}"
+    path: "catalog/catalog-update/{#stockId}?update-type={#action}"
 - name: stocks
-    endpoint: "stocks/?id={#id}"
+    path: "stocks/?id={#id}"
     method: "GET"
     azdMapping:
     stockId:
         required: true
         value: "{$id}"
 - name: payment
-    endpoint: "payment/trade?numbers={#numbers}"
+    path: "payment/trade?numbers={#numbers}"
     azdMapping:
     quantity:
         required: true
         value: "{$numbers}"
 ```
 
-The above section lists the services and their APIs that are invoked while processing the `POST order/trade/{#stockId}?action={#action}` external API. For each service, the default `endpoint`, `method`, and `azdMapping` may be used or each field can be overridden with different values.
+The above section lists the services and their APIs that are invoked while processing the `POST order/trade/{#stockId}?action={#action}` external API. For each service, the default `path`, `method`, and `azdMapping` may be used or each field can be overridden with different values.
 
 In the above, the `order`, `catalog`, `stocks`, and `payment` services' endpoints are invoked when processing the external trade request.
 
-**Order service**: All `endpoint`, `method`, and `azdMapping` are inherited from the original definition.
+**Order service**: All `path`, `method`, and `azdMapping` are inherited from the original definition.
 
 **Catalog service**: `azdMapping` is inherited from the original definition.
 

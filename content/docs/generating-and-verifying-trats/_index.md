@@ -55,7 +55,7 @@ Should be set to `urn:ietf:params:oauth:token-type:self_signed` for self-signed 
 
 Includes data about the request. It should contain the following:
 
-*endpoint*: The request URL path.
+*path*: The request URL path.
 
 *method*: The HTTP method of the request (e.g., `GET`, `POST`, `PUT`, `DELETE`).
 
@@ -69,7 +69,7 @@ Below is an example `request_details`:
 
 ```json
 {
-    "endpoint": "/order",
+    "path": "/order",
     "method": "POST",
     "body": {
         "stock": "NASDAQ:MSFT",

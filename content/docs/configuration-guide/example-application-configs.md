@@ -8,9 +8,9 @@ Below are the Tratteria Kubernetes resources for the [Tratteria example applicat
 
 ### TraTs
 
-The Tratteria example application has five external APIs; consequently, there are five TraT resources.
+The Tratteria example application has four external APIs; consequently, there are four TraT resources.
 
-`stock-details-api.yaml:`
+`stock-details-api-trat.yaml:`
 
 ```yaml
 apiVersion: tratteria.io/v1alpha1
@@ -19,7 +19,7 @@ metadata:
   name: stock-details-api-trat
   namespace: alpha-stocks-dev
 spec:
-  endpoint: "/api/stocks/details/{#stockId}"
+  path: "/api/stocks/details/{#stockId}"
   method: "GET"
   purp: stock-details
   azdMapping:
@@ -30,7 +30,7 @@ spec:
     - name: stocks
 ```
 
-`stock-holdings-api.yaml:`
+`stock-holdings-api-trat.yaml:`
 
 ```yaml
 apiVersion: tratteria.io/v1alpha1
@@ -39,14 +39,14 @@ metadata:
   name: stock-holdings-api-trat
   namespace: alpha-stocks-dev
 spec:
-  endpoint: "/api/stocks/holdings"
+  path: "/api/stocks/holdings"
   method: "GET"
   purp: stock-holdings
   services:
     - name: stocks
 ```
 
-`stock-search-api.yaml:`
+`stock-search-api-trat.yaml:`
 
 ```yaml
 apiVersion: tratteria.io/v1alpha1
@@ -55,7 +55,7 @@ metadata:
   name: stock-search-api-trat
   namespace: alpha-stocks-dev
 spec:
-  endpoint: "/api/stocks/search"
+  path: "/api/stocks/search"
   method: "GET"
   purp: stock-search
   azdMapping:
@@ -66,7 +66,7 @@ spec:
     - name: stocks
 ```
 
-`stock-trade-api.yaml:`
+`stock-trade-api-trat.yaml:`
 
 ```yaml
 apiVersion: tratteria.io/v1alpha1
@@ -75,7 +75,7 @@ metadata:
   name: stock-trade-api-trat
   namespace: alpha-stocks-dev
 spec:
-  endpoint: "/api/order"
+  path: "/api/order"
   method: "POST"
   purp: stock-trade
   azdMapping:
@@ -91,56 +91,38 @@ spec:
   services:
     - name: order
     - name: stocks
-      endpoint: "/internal/stocks"
-```
-
-`trade-details-api.yaml:`
-
-```yaml
-apiVersion: tratteria.io/v1alpha1
-kind: TraT
-metadata:
-  name: trade-details-api-trat
-  namespace: alpha-stocks-dev
-spec:
-  endpoint: "/api/order/{#transactionNumber}"
-  method: "GET"
-  purp: stock-details
-  azdMapping:
-    transactionNumber:
-      required: true
-      value: "${transactionNumber}"
-  services:
-    - name: order
+      path: "/internal/stocks"
 ```
 
 ## TraTExclusion
 
 There are two services, the stocks and order service, that verify TraTs in the example application; consequently, there are two TraTExclusion resources.
 
-`order-trat-exclusion.yaml:`
+`order-service-tratexcl.yaml`
 
 ```yaml
 apiVersion: tratteria.io/v1alpha1
 kind: TraTExclusion
 metadata:
-  name: order-trat-exclusion
-  service: order
+  name: order-service-tratexcl
+  namespace: alpha-stocks-dev
 spec:
+  service: order
   endpoints:
     - path: "/health"
       method: "GET"
 ```
 
-`stocks-trat-exclusion.yaml:`
+`stocks-service-tratexcl.yaml:`
 
 ```yaml
 apiVersion: tratteria.io/v1alpha1
 kind: TraTExclusion
 metadata:
-  name: stocks-trat-exclusion
-  service: stocks
+  name: stocks-service-tratexcl
+  namespace: alpha-stocks-dev
 spec:
+  service: stocks
   endpoints:
     - path: "/health"
       method: "GET"

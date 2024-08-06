@@ -12,9 +12,10 @@ Below is an example of TraTExclusion for the order service:
 apiVersion: tratteria.io/v1alpha1
 kind: TraTExclusion
 metadata:
-  name: order-trat-exclusion
-  service: order
+  name: order-service-tratexcl
+  namespace: alpha-stocks-dev
 spec:
+  service: order
   endpoints:
     - path: "/health"
       method: "GET"
