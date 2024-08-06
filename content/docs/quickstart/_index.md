@@ -6,6 +6,8 @@ toc: true
 
 Welcome to the Tratteria quickstart guide. This tutorial will guide you through setting up the sample application and observing Tratteria in action.
 
+Tratteria is an open source implementation of the [IETF OAuth Transaction Tokens (TraTs) draft specification](https://datatracker.ietf.org/doc/draft-ietf-oauth-transaction-tokens/).
+
 ## Deployment
 
 Follow the instructions in the [README](https://github.com/tratteria/example-application/blob/main/README.md) of the example application to deploy the application.
