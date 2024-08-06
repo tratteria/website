@@ -12,7 +12,7 @@ weight: 1
 }
 </style>
 
-Welcome to the documentation for Tratteria, an open-source Transaction Tokens (TraTs) Service. This guide will help you understand what Tratteria is, how it works, and how to implement it in your microservices architecture.
+Welcome to the documentation for Tratteria, an open-source [Transaction Tokens](https://datatracker.ietf.org/doc/draft-ietf-oauth-transaction-tokens/) (TraTs) Service. This guide will help you understand what Tratteria is, how it works, and how to implement it in your microservices architecture.
 
 ## TraT
 
