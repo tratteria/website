@@ -28,6 +28,13 @@ spec:
       value: "${stockId}"
   services:
     - name: stocks
+  accessEvaluation:
+    subject:
+      id: "${subject_token.email}"
+    action:
+      name: "stock-details"
+    resource:
+      stockId: "${stockId}"
 ```
 
 `stock-holdings-api-trat.yaml:`
@@ -44,6 +51,11 @@ spec:
   purp: stock-holdings
   services:
     - name: stocks
+  accessEvaluation:
+    subject:
+      id: "${subject_token.email}"
+    action:
+      name: "stock-holdings"
 ```
 
 `stock-search-api-trat.yaml:`
@@ -64,6 +76,13 @@ spec:
       value: "${queryParameters.query}"
   services:
     - name: stocks
+  accessEvaluation:
+    subject:
+      id: "${subject_token.email}"
+    action:
+      name: "stock-search"
+    resource:
+      query: "${queryParameters.query}"
 ```
 
 `stock-trade-api-trat.yaml:`
@@ -92,6 +111,13 @@ spec:
     - name: order
     - name: stocks
       path: "/internal/stocks"
+  accessEvaluation:
+    subject:
+      id: "${subject_token.email}"
+    action:
+      name: "${body.orderType}"
+    resource:
+      stockId: "${body.stockId}"
 ```
 
 ## TraTExclusion
