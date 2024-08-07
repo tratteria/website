@@ -46,8 +46,7 @@ apiVersion: tratteria.io/v1alpha1 kind: TratteriaConfig metadata: name: alpha-st
       <description>Below are the Tratteria Kubernetes resources for the Tratteria example application. These examples can serve as references when writing the resources for your microservices application.
 TraTs The Tratteria example application has four external APIs; consequently, there are four TraT resources.
 stock-details-api-trat.yaml:
-apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-details-api-trat namespace: alpha-stocks-dev spec: path: &amp;#34;/api/stocks/details/{#stockId}&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-details azdMapping: stockId: required: true value: &amp;#34;${stockId}&amp;#34; services: - name: stocks stock-holdings-api-trat.yaml:
-apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-holdings-api-trat namespace: alpha-stocks-dev spec: path: &amp;#34;/api/stocks/holdings&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-holdings services: - name: stocks stock-search-api-trat.</description>
+apiVersion: tratteria.io/v1alpha1 kind: TraT metadata: name: stock-details-api-trat namespace: alpha-stocks-dev spec: path: &amp;#34;/api/stocks/details/{#stockId}&amp;#34; method: &amp;#34;GET&amp;#34; purp: stock-details azdMapping: stockId: required: true value: &amp;#34;${stockId}&amp;#34; services: - name: stocks accessEvaluation: subject: id: &amp;#34;${subject_token.</description>
     </item>
     
   </channel>
