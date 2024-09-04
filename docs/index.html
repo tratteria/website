@@ -193,7 +193,86 @@
   </a>
 </h2>
 <p>TraTs (Transaction Tokens) are short-lived JWTs that assure identity and context in a microservices call chain. Learn more about TraTs <a href="/docs/transaction-token">here</a>. The example below describes the salient features of a TraT:</p>
-<img src="/img/docs/introduction/what_is_a_trat.jpg" alt="What Is a TraT" class="doc-image">
+<!-- Image -->
+<p><img src="/img/docs/introduction/what_is_a_trat.svg" 
+alt="What Is a TraT" 
+class="doc-image" 
+style="cursor: pointer;" 
+onclick="openModal();"></p>
+<!-- Modal Structure -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="popupImage">
+</div>
+<!-- Styles for Modal -->
+<style>
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.8); 
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+<!-- JavaScript for Modal -->
+<script>
+function openModal() {
+  const modal = document.getElementById('imageModal');
+  modal.style.display = 'flex';
+  document.getElementById('popupImage').src = '/img/docs/introduction/what_is_a_trat.svg';
+  
+  // Close when Esc key is pressed
+  document.onkeydown = function(event) {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  };
+
+  // Close when clicking outside the image
+  modal.onclick = function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+}
+
+function closeModal() {
+  document.getElementById('imageModal').style.display = 'none';
+  document.onkeydown = null; // Remove the event listener when the modal is closed
+}
+</script>
 <h2 id="tratteria-architecture">
   Tratteria Architecture
   <a href="#tratteria-architecture">
