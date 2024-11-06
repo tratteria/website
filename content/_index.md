@@ -55,6 +55,7 @@ html, body {
 
 .home .buttons {
   margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .buttons a {
@@ -75,6 +76,51 @@ html, body {
   background: #434190;
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.divider {
+  width: 100%;
+  max-width: 600px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  margin: 3em auto;
+}
+
+.community-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.community-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.2em 3em;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4vw;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.community-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.community-button svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
 footer {
@@ -102,17 +148,41 @@ footer a {
     padding: 10px 20px;
     font-size: 16px;
   }
+  
+  .community-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .community-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .community-button i {
+    margin-right: 8px;
+  }
 }
 
 </style>
-
-<div class="home">
-  <img src="/img/logos/image-logo.svg" alt="Tratteria Logo">
-  <h1>Tratteria</h1>
-  <h2>Transaction Tokens Service</h2>
-  <h3>Assure identity and context in microservices with <a href="https://tratteria.io/docs/transaction-token/" target="_blank">Transaction Tokens</a>.</h3>
-  <div class="buttons">
-    <a href="/docs" class="button"><i class="fas fa-book-open"></i> Learn More</a>
-    <a href="/docs/quickstart" class="button"><i class="fas fa-rocket"></i> Get Started</a>
+  <div class="home">
+    <img src="/img/logos/image-logo.svg" alt="Tratteria Logo">
+    <h1>Tratteria</h1>
+    <h2>Transaction Tokens Service</h2>
+    <h3>Assure identity and context in microservices with <a href="https://tratteria.io/docs/transaction-token/" target="_blank">Transaction Tokens</a>.</h3>
+    <div class="buttons">
+      <a href="/docs" class="button"><i class="fas fa-book-open"></i> Learn More</a>
+      <a href="/docs/quickstart" class="button"><i class="fas fa-rocket"></i> Get Started</a>
+  </div>
+  
+  <div class="divider"></div>
+  
+  <div class="community-buttons">
+    <a href="https://github.com/orgs/tratteria/discussions" class="community-button" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github" style="margin-right: 8px;"></i> Join the Discussion
+    </a>
+    <a href="https://github.com/tratteria" class="community-button" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github" style="margin-right: 8px;"></i> View on GitHub
+    </a>
   </div>
 </div>
